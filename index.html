@@ -18,6 +18,8 @@
     .field { width:100%; padding:.75rem 1rem; border-radius:.75rem; background:#f8fafc; border:1px solid #e2e8f0; font-size:.875rem; transition:border-color .2s,box-shadow .2s; outline:none; }
     .field:focus { border-color:#0d9488; box-shadow:0 0 0 3px rgba(13,148,136,.15); }
     #tax-detail { display:none; }
+    .lang-btn { border:2px solid #0f766e; color:#0f766e; background:transparent; border-radius:9999px; padding:.25rem .75rem; font-size:.75rem; font-weight:700; cursor:pointer; transition:all .2s; }
+    .lang-btn:hover, .lang-btn.active { background:#0f766e; color:#fff; }
   </style>
 </head>
 <body class="bg-[#f8f6f3] text-[#1e293b] antialiased">
@@ -26,72 +28,53 @@
   <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm">
     <div class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
       <a href="#" class="font-extrabold text-xl text-[#0f766e] tracking-tight">Wakation</a>
-      <nav class="hidden sm:flex items-center gap-8 text-sm font-semibold text-slate-600">
-        <a href="#about" class="hover:text-[#0f766e] transition-colors">소개</a>
-        <a href="#gallery" class="hover:text-[#0f766e] transition-colors">공간</a>
-        <a href="#includes" class="hover:text-[#0f766e] transition-colors">포함</a>
-        <a href="#schedule" class="hover:text-[#0f766e] transition-colors">일정</a>
+      <nav class="hidden sm:flex items-center gap-6 text-sm font-semibold text-slate-600">
+        <a href="#about" class="hover:text-[#0f766e] transition-colors" data-i18n="nav-about">소개</a>
+        <a href="#gallery" class="hover:text-[#0f766e] transition-colors" data-i18n="nav-space">공간</a>
+        <a href="#includes" class="hover:text-[#0f766e] transition-colors" data-i18n="nav-includes">포함</a>
+        <a href="#schedule" class="hover:text-[#0f766e] transition-colors" data-i18n="nav-schedule">일정</a>
         <a href="#faq" class="hover:text-[#0f766e] transition-colors">FAQ</a>
+        <div class="flex items-center gap-1 ml-2">
+          <button class="lang-btn active" data-lang="ko" onclick="setLang('ko')">KR</button>
+          <button class="lang-btn" data-lang="ja" onclick="setLang('ja')">JP</button>
+        </div>
       </nav>
-      <a href="#apply"
-        class="bg-[#0d9488] text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-[#0f766e] transition-colors shadow-md shadow-teal-600/20">
-        신청하기
-      </a>
+      <a href="#apply" class="bg-[#0d9488] text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-[#0f766e] transition-colors shadow-md shadow-teal-600/20" data-i18n="nav-apply">신청하기</a>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="relative overflow-hidden">
-    <div class="lg:grid lg:grid-cols-2 lg:min-h-[88vh]">
-      <div class="order-2 lg:order-1 flex flex-col justify-center px-6 py-14 lg:py-20 lg:pl-10 lg:pr-8 max-w-2xl lg:max-w-none mx-auto lg:mx-0 fade-in">
-        <div class="flex flex-wrap gap-2 mb-6">
-          <span class="bg-[#0d9488] text-white text-xs font-bold px-3 py-1.5 rounded-full">1기 파일럿 모집중</span>
-          <span class="bg-slate-100 text-slate-700 text-xs font-semibold px-3 py-1.5 rounded-full">강원도 양양</span>
-          <span class="bg-slate-100 text-slate-700 text-xs font-semibold px-3 py-1.5 rounded-full">2박 3일</span>
-        </div>
-        <h1 class="text-4xl sm:text-5xl lg:text-[3.25rem] font-extrabold text-[#0f172a] leading-[1.15] mb-5">
-          사무실을 벗어나도,<br />
-          <span class="text-[#0d9488]">사업은 멈추지 않게.</span>
-        </h1>
-        <p class="text-slate-600 text-lg leading-relaxed mb-8 max-w-md">
-          양양 바다 앞에서 일하고, 쉬고, 다시 성장 방향을 잡는 2박 3일 워케이션 성장 프로그램.
-        </p>
-        <div class="flex flex-wrap gap-3 mb-10">
-          <a href="#apply"
-            class="bg-[#0d9488] text-white font-bold px-8 py-4 rounded-full hover:bg-[#0f766e] transition-all shadow-lg shadow-teal-600/25">
-            지금 신청하기
-          </a>
-          <a href="#includes"
-            class="bg-white text-slate-800 font-bold px-8 py-4 rounded-full border-2 border-slate-200 hover:border-[#0d9488] hover:text-[#0f766e] transition-all">
-            프로그램 상세보기
-          </a>
-        </div>
-        <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-200">
-          <div>
-            <p class="text-2xl font-extrabold text-[#0f172a]">2박 3일</p>
-            <p class="text-slate-500 text-xs font-medium mt-0.5">2인 1실 기준 숙박</p>
-          </div>
-          <div>
-            <p class="text-2xl font-extrabold text-[#0f172a]">종일</p>
-            <p class="text-slate-500 text-xs font-medium mt-0.5">코워킹 이용</p>
-          </div>
-          <div>
-            <p class="text-2xl font-extrabold text-[#0d9488]">₩299K</p>
-            <p class="text-slate-500 text-xs font-medium mt-0.5">파일럿 특가</p>
-          </div>
-        </div>
+  <!-- Hero (중앙 정렬, 배경 이미지) -->
+  <section class="relative overflow-hidden min-h-[90vh] flex items-center justify-center">
+    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=90" alt="양양 해변" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-gradient-to-b from-black/10 via-[#f8f6f3]/60 to-[#f8f6f3]"></div>
+    <div class="relative w-full max-w-2xl mx-auto px-6 py-24 text-center fade-in">
+      <div class="flex flex-wrap justify-center gap-2 mb-6">
+        <span class="bg-[#0d9488] text-white text-xs font-bold px-3 py-1.5 rounded-full" data-i18n="hero-badge">1기 파일럿 모집중</span>
+        <span class="bg-white/90 text-slate-700 text-xs font-semibold px-3 py-1.5 rounded-full" data-i18n="hero-badge2">강원도 양양</span>
+        <span class="bg-white/90 text-slate-700 text-xs font-semibold px-3 py-1.5 rounded-full" data-i18n="hero-badge3">2박 3일</span>
       </div>
-      <div class="order-1 lg:order-2 relative min-h-[52vh] lg:min-h-full">
-        <img
-          src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=90"
-          alt="양양 해변 풍경"
-          class="absolute inset-0 w-full h-full object-cover"
-        />
-        <div class="absolute inset-0 bg-gradient-to-r from-[#f8f6f3]/0 via-transparent to-transparent lg:bg-gradient-to-l lg:from-[#f8f6f3] lg:via-[#f8f6f3]/30 lg:to-transparent"></div>
-        <div class="absolute bottom-5 left-5 right-5 lg:left-8 lg:right-8">
-          <p class="inline-block bg-white/95 text-slate-800 text-sm font-semibold px-4 py-2 rounded-xl shadow-lg">
-            동해 바다 · 양양에서의 워케이션
-          </p>
+      <h1 class="text-4xl sm:text-5xl lg:text-[3.25rem] font-extrabold text-[#0f172a] leading-[1.15] mb-5" data-i18n="hero-title">
+        사무실을 벗어나도,<br /><span class="text-[#0d9488]">사업은 멈추지 않게.</span>
+      </h1>
+      <p class="text-slate-700 text-lg leading-relaxed mb-8 max-w-md mx-auto" data-i18n="hero-sub">
+        양양 바다 앞에서 일하고, 쉬고, 다시 성장 방향을 잡는 2박 3일 워케이션 성장 프로그램.
+      </p>
+      <div class="flex flex-wrap justify-center gap-3 mb-10">
+        <a href="#apply" class="bg-[#0d9488] text-white font-bold px-8 py-4 rounded-full hover:bg-[#0f766e] transition-all shadow-lg shadow-teal-600/25" data-i18n="hero-cta1">지금 신청하기</a>
+        <a href="#includes" class="bg-white text-slate-800 font-bold px-8 py-4 rounded-full border-2 border-slate-200 hover:border-[#0d9488] hover:text-[#0f766e] transition-all" data-i18n="hero-cta2">프로그램 상세보기</a>
+      </div>
+      <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-300/60 max-w-sm mx-auto">
+        <div>
+          <p class="text-2xl font-extrabold text-[#0f172a]" data-i18n="stat1-val">2박 3일</p>
+          <p class="text-slate-600 text-xs font-medium mt-0.5" data-i18n="stat1-label">2인 1실 기준 숙박</p>
+        </div>
+        <div>
+          <p class="text-2xl font-extrabold text-[#0f172a]" data-i18n="stat2-val">종일</p>
+          <p class="text-slate-600 text-xs font-medium mt-0.5" data-i18n="stat2-label">코워킹 이용</p>
+        </div>
+        <div>
+          <p class="text-2xl font-extrabold text-[#0d9488]">₩299K</p>
+          <p class="text-slate-600 text-xs font-medium mt-0.5" data-i18n="stat3-label">파일럿 특가</p>
         </div>
       </div>
     </div>
@@ -100,99 +83,84 @@
   <!-- 포함 요약 바 -->
   <section class="bg-[#0f766e] py-5 px-5">
     <div class="max-w-6xl mx-auto flex flex-wrap justify-center gap-x-8 gap-y-2 text-white text-sm font-semibold">
-      <span>2박 3일 숙박 (2인 1실 기준)</span>
-      <span>웨이브웍스 양양 종일 이용</span>
-      <span>바베큐 네트워킹</span>
-      <span>성장 세션</span>
-      <span>세금계산서 발행 가능</span>
-      <span>선착순 마감</span>
+      <span data-i18n="bar1">2박 3일 숙박 (2인 1실 기준)</span>
+      <span data-i18n="bar2">웨이브웍스 양양 종일 이용</span>
+      <span data-i18n="bar3">바베큐 네트워킹</span>
+      <span data-i18n="bar4">성장 세션</span>
+      <span data-i18n="bar5">세금계산서 발행 가능</span>
+      <span data-i18n="bar6">선착순 마감</span>
     </div>
   </section>
 
-  <!-- 비주얼 갤러리 -->
+  <!-- 갤러리 -->
   <section id="gallery" class="py-20 px-5 bg-white">
     <div class="max-w-6xl mx-auto">
       <p class="text-[#0d9488] text-xs font-bold tracking-widest uppercase mb-3">Experience</p>
-      <h2 class="text-3xl md:text-4xl font-extrabold text-[#0f172a] mb-3">일, 회복, 연결 — 한곳에서</h2>
-      <p class="text-slate-600 text-lg mb-10 max-w-2xl">업무에 몰입할 공간, 바다로 충전하는 휴식, 함께 성장하는 사람들. 사진으로 먼저 느껴보세요.</p>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-[#0f172a] mb-3" data-i18n="gallery-title">일, 회복, 연결 — 한곳에서</h2>
+      <p class="text-slate-600 text-lg mb-10 max-w-2xl" data-i18n="gallery-sub">업무에 몰입할 공간, 바다로 충전하는 휴식, 함께 성장하는 사람들. 사진으로 먼저 느껴보세요.</p>
       <div class="grid md:grid-cols-3 gap-5">
         <article class="img-card group rounded-2xl overflow-hidden shadow-lg border border-slate-100">
           <div class="aspect-[4/3] overflow-hidden">
-            <img
-              src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=900&q=90"
-              alt="코워킹 공간에서 업무하는 모습"
-              class="img-zoom w-full h-full object-cover"
-            />
+            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=900&q=90" alt="코워킹" class="img-zoom w-full h-full object-cover" />
           </div>
           <div class="p-5 bg-white">
-            <h3 class="font-bold text-[#0f172a] text-lg mb-1">업무 몰입</h3>
-            <p class="text-slate-600 text-sm leading-relaxed">웨이브웍스 양양 — 전용 데스크, 고속 WiFi, 회의실</p>
+            <h3 class="font-bold text-[#0f172a] text-lg mb-1" data-i18n="gc1-title">업무 몰입</h3>
+            <p class="text-slate-600 text-sm leading-relaxed" data-i18n="gc1-desc">웨이브웍스 양양 — 전용 데스크, 고속 WiFi, 회의실</p>
           </div>
         </article>
         <article class="img-card group rounded-2xl overflow-hidden shadow-lg border border-slate-100 md:mt-8">
           <div class="aspect-[4/3] overflow-hidden">
-            <img
-              src="https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=900&q=90"
-              alt="해변과 서핑"
-              class="img-zoom w-full h-full object-cover"
-            />
+            <img src="https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=900&q=90" alt="해변" class="img-zoom w-full h-full object-cover" />
           </div>
           <div class="p-5 bg-white">
-            <h3 class="font-bold text-[#0f172a] text-lg mb-1">바다 회복</h3>
-            <p class="text-slate-600 text-sm leading-relaxed">양양 해변 · 서퍼스비치 — 일상에서 벗어나 에너지 충전</p>
+            <h3 class="font-bold text-[#0f172a] text-lg mb-1" data-i18n="gc2-title">바다 회복</h3>
+            <p class="text-slate-600 text-sm leading-relaxed" data-i18n="gc2-desc">양양 해변 · 서퍼스비치 — 일상에서 벗어나 에너지 충전</p>
           </div>
         </article>
         <article class="img-card group rounded-2xl overflow-hidden shadow-lg border border-slate-100">
           <div class="aspect-[4/3] overflow-hidden">
-            <img
-              src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=900&q=90"
-              alt="야외 바베큐 네트워킹"
-              class="img-zoom w-full h-full object-cover"
-            />
+            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=900&q=90" alt="바베큐" class="img-zoom w-full h-full object-cover" />
           </div>
           <div class="p-5 bg-white">
-            <h3 class="font-bold text-[#0f172a] text-lg mb-1">네트워킹</h3>
-            <p class="text-slate-600 text-sm leading-relaxed">첫날 저녁 바베큐 — 사업 이야기를 나누는 시간</p>
+            <h3 class="font-bold text-[#0f172a] text-lg mb-1" data-i18n="gc3-title">네트워킹</h3>
+            <p class="text-slate-600 text-sm leading-relaxed" data-i18n="gc3-desc">첫날 저녁 바베큐 — 사업 이야기를 나누는 시간</p>
           </div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- 이 프로그램은? -->
+  <!-- About -->
   <section id="about" class="py-20 px-5 bg-[#f8f6f3]">
     <div class="max-w-6xl mx-auto">
       <div class="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
         <div>
           <p class="text-[#0d9488] text-xs font-bold tracking-widest uppercase mb-3">Why Wakation</p>
-          <h2 class="text-3xl md:text-4xl font-extrabold text-[#0f172a] leading-snug mb-5">
-            단순 여행 패키지가 아닙니다.<br />
-            <span class="text-slate-500 font-bold">체류형 업무·성장 프로그램입니다.</span>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-[#0f172a] leading-snug mb-5" data-i18n="about-title">
+            단순 여행 패키지가 아닙니다.<br /><span class="text-slate-500 font-bold">체류형 업무·성장 프로그램입니다.</span>
           </h2>
-          <p class="text-slate-600 leading-relaxed mb-8">
-            강원도 양양에서 2박 3일 동안 업무 환경, 휴식, 성장 세션을 한 흐름으로 설계했습니다. 혼자 와도, 팀으로 와도 자연스럽게 연결됩니다.
-          </p>
+          <p class="text-slate-600 leading-relaxed mb-8" data-i18n="about-sub">강원도 양양에서 2박 3일 동안 업무 환경, 휴식, 성장 세션을 한 흐름으로 설계했습니다. 혼자 와도, 팀으로 와도 자연스럽게 연결됩니다.</p>
         </div>
         <div class="grid sm:grid-cols-3 lg:grid-cols-1 gap-4">
           <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 flex gap-4 items-start">
-            <span class="text-3xl shrink-0" aria-hidden="true">💼</span>
+            <span class="text-3xl shrink-0">💼</span>
             <div>
-              <h3 class="font-bold text-[#0f172a] mb-1">업무 몰입</h3>
-              <p class="text-slate-600 text-sm leading-relaxed">방해 없이 집중할 수 있는 코워킹 환경</p>
+              <h3 class="font-bold text-[#0f172a] mb-1" data-i18n="about-c1-title">업무 몰입</h3>
+              <p class="text-slate-600 text-sm leading-relaxed" data-i18n="about-c1-desc">방해 없이 집중할 수 있는 코워킹 환경</p>
             </div>
           </div>
           <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 flex gap-4 items-start">
-            <span class="text-3xl shrink-0" aria-hidden="true">🌊</span>
+            <span class="text-3xl shrink-0">🌊</span>
             <div>
-              <h3 class="font-bold text-[#0f172a] mb-1">회복</h3>
-              <p class="text-slate-600 text-sm leading-relaxed">바다 앞에서 리셋하는 진짜 휴식</p>
+              <h3 class="font-bold text-[#0f172a] mb-1" data-i18n="about-c2-title">회복</h3>
+              <p class="text-slate-600 text-sm leading-relaxed" data-i18n="about-c2-desc">바다 앞에서 리셋하는 진짜 휴식</p>
             </div>
           </div>
           <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 flex gap-4 items-start">
-            <span class="text-3xl shrink-0" aria-hidden="true">🚀</span>
+            <span class="text-3xl shrink-0">🚀</span>
             <div>
-              <h3 class="font-bold text-[#0f172a] mb-1">성장 세션</h3>
-              <p class="text-slate-600 text-sm leading-relaxed">AI 실무, 사업 방향 — 같은 목적의 사람들과</p>
+              <h3 class="font-bold text-[#0f172a] mb-1" data-i18n="about-c3-title">성장 세션</h3>
+              <p class="text-slate-600 text-sm leading-relaxed" data-i18n="about-c3-desc">AI 실무, 사업 방향 — 같은 목적의 사람들과</p>
             </div>
           </div>
         </div>
@@ -204,60 +172,53 @@
   <section id="includes" class="py-20 px-5 bg-white">
     <div class="max-w-6xl mx-auto">
       <p class="text-[#0d9488] text-xs font-bold tracking-widest uppercase mb-3">What's Included</p>
-      <h2 class="text-3xl md:text-4xl font-extrabold text-[#0f172a] mb-10">참가비에 전부 포함됩니다</h2>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-[#0f172a] mb-10" data-i18n="inc-title">참가비에 전부 포함됩니다</h2>
       <div class="lg:grid lg:grid-cols-5 lg:gap-10">
         <div class="lg:col-span-2 mb-8 lg:mb-0 rounded-2xl overflow-hidden shadow-xl">
-          <img
-            src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=90"
-            alt="양양 숙소와 바다 전망"
-            class="w-full h-72 lg:h-full object-cover min-h-[280px]"
-          />
+          <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=90" alt="숙소" class="w-full h-72 lg:h-full object-cover min-h-[280px]" />
         </div>
         <div class="lg:col-span-3 grid sm:grid-cols-2 gap-4">
           <div class="flex items-start gap-4 bg-[#f8f6f3] rounded-2xl p-5 border border-slate-100">
-            <span class="text-2xl shrink-0" aria-hidden="true">🏠</span>
+            <span class="text-2xl shrink-0">🏠</span>
             <div>
-              <p class="text-[#0f172a] font-bold mb-1">2박 3일 숙박</p>
-              <p class="text-slate-600 text-sm">2인 1실 기준 · 1인실 희망 시 +30,000원/박 · 양양 해변 인근 워케이션 전용 숙소</p>
+              <p class="text-[#0f172a] font-bold mb-1" data-i18n="inc-c1-title">2박 3일 숙박</p>
+              <p class="text-slate-600 text-sm" data-i18n="inc-c1-desc">2인 1실 기준 · 1인실 희망 시 +30,000원/박 · 양양 해변 인근 워케이션 전용 숙소</p>
             </div>
           </div>
           <div class="flex items-start gap-4 bg-[#f8f6f3] rounded-2xl p-5 border border-slate-100">
-            <span class="text-2xl shrink-0" aria-hidden="true">💻</span>
+            <span class="text-2xl shrink-0">💻</span>
             <div>
-              <p class="text-[#0f172a] font-bold mb-1">웨이브웍스 양양 종일 이용</p>
-              <p class="text-slate-600 text-sm">전용 데스크 + 회의실 + 고속 WiFi</p>
+              <p class="text-[#0f172a] font-bold mb-1" data-i18n="inc-c2-title">웨이브웍스 양양 종일 이용</p>
+              <p class="text-slate-600 text-sm" data-i18n="inc-c2-desc">전용 데스크 + 회의실 + 고속 WiFi</p>
             </div>
           </div>
           <div class="flex items-start gap-4 bg-[#f8f6f3] rounded-2xl p-5 border border-slate-100">
-            <span class="text-2xl shrink-0" aria-hidden="true">🔥</span>
+            <span class="text-2xl shrink-0">🔥</span>
             <div>
-              <p class="text-[#0f172a] font-bold mb-1">첫날 바베큐 네트워킹</p>
-              <p class="text-slate-600 text-sm">참가자 전원 자기소개 + 사업 현황 공유</p>
+              <p class="text-[#0f172a] font-bold mb-1" data-i18n="inc-c3-title">첫날 바베큐 네트워킹</p>
+              <p class="text-slate-600 text-sm" data-i18n="inc-c3-desc">참가자 전원 자기소개 + 사업 현황 공유</p>
             </div>
           </div>
           <div class="flex items-start gap-4 bg-[#f8f6f3] rounded-2xl p-5 border border-slate-100">
-            <span class="text-2xl shrink-0" aria-hidden="true">⚡</span>
+            <span class="text-2xl shrink-0">⚡</span>
             <div>
-              <p class="text-[#0f172a] font-bold mb-1">성장 세션</p>
-              <p class="text-slate-600 text-sm">AI 실무 + 사업 방향 정리 워크숍</p>
-              <!-- TODO: 호스트명·이력 확정 후 아래 줄 활성화
-              <p class="text-[#0d9488] text-xs font-semibold mt-1">진행: [호스트명] · AI 비즈니스 전문가 / 1인 창업 ○년</p>
-              -->
-              <p class="text-[#0d9488] text-xs font-semibold mt-1">진행: Wakation 호스트 팀 · AI 실무 전문가</p>
+              <p class="text-[#0f172a] font-bold mb-1" data-i18n="inc-c4-title">성장 세션</p>
+              <p class="text-slate-600 text-sm" data-i18n="inc-c4-desc">AI 실무 + 사업 방향 정리 워크숍</p>
+              <p class="text-[#0d9488] text-xs font-semibold mt-1" data-i18n="inc-c4-host">진행: Wakation 호스트 팀 · AI 실무 전문가</p>
             </div>
           </div>
           <div class="flex items-start gap-4 bg-[#f8f6f3] rounded-2xl p-5 border border-slate-100">
-            <span class="text-2xl shrink-0" aria-hidden="true">🤝</span>
+            <span class="text-2xl shrink-0">🤝</span>
             <div>
-              <p class="text-[#0f172a] font-bold mb-1">커뮤니티 연결</p>
-              <p class="text-slate-600 text-sm">1인 사업자·프리랜서 동료와 자연스러운 연결</p>
+              <p class="text-[#0f172a] font-bold mb-1" data-i18n="inc-c5-title">커뮤니티 연결</p>
+              <p class="text-slate-600 text-sm" data-i18n="inc-c5-desc">1인 사업자·프리랜서 동료와 자연스러운 연결</p>
             </div>
           </div>
           <div class="flex items-start gap-4 bg-[#f8f6f3] rounded-2xl p-5 border border-slate-100">
-            <span class="text-2xl shrink-0" aria-hidden="true">🌅</span>
+            <span class="text-2xl shrink-0">🌅</span>
             <div>
-              <p class="text-[#0f172a] font-bold mb-1">자유 업무 + 회복 시간</p>
-              <p class="text-slate-600 text-sm">강요 없이 내 페이스대로 일하고 쉬는 시간</p>
+              <p class="text-[#0f172a] font-bold mb-1" data-i18n="inc-c6-title">자유 업무 + 회복 시간</p>
+              <p class="text-slate-600 text-sm" data-i18n="inc-c6-desc">강요 없이 내 페이스대로 일하고 쉬는 시간</p>
             </div>
           </div>
         </div>
@@ -265,45 +226,45 @@
     </div>
   </section>
 
-  <!-- 2박 3일 일정 -->
+  <!-- 일정 -->
   <section id="schedule" class="py-20 px-5 bg-[#f8f6f3]">
     <div class="max-w-3xl mx-auto">
       <p class="text-[#0d9488] text-xs font-bold tracking-widest uppercase mb-3 text-center">Schedule</p>
-      <h2 class="text-3xl md:text-4xl font-extrabold text-[#0f172a] mb-12 text-center">2박 3일 프로그램</h2>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-[#0f172a] mb-12 text-center" data-i18n="sch-title">2박 3일 프로그램</h2>
       <div class="space-y-0">
         <div class="relative pl-12 pb-10 border-l-2 border-[#0d9488]/30">
           <div class="absolute left-0 -translate-x-1/2 w-10 h-10 bg-[#0d9488] rounded-full flex items-center justify-center font-bold text-white text-sm">D1</div>
           <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-            <p class="text-[#0f172a] font-bold text-lg mb-3">도착 · 셋업 · 네트워킹 <span class="text-slate-400 text-sm font-normal">(6/17 수)</span></p>
+            <p class="text-[#0f172a] font-bold text-lg mb-3" data-i18n="d1-title">도착 · 셋업 · 네트워킹 <span class="text-slate-400 text-sm font-normal">(6/17 수)</span></p>
             <ul class="space-y-2 text-slate-600 text-sm">
-              <li class="flex gap-2"><span class="text-[#0d9488] font-bold">→</span> 오후 2시~ 체크인 + 웨이브웍스 입실</li>
-              <li class="flex gap-2"><span class="text-[#0d9488] font-bold">→</span> 자유 업무 셋업 시간</li>
-              <li class="flex gap-2"><span class="text-[#0d9488] font-bold">→</span> 저녁 6시 바베큐 네트워킹 (포함)</li>
-              <li class="flex gap-2"><span class="text-[#0d9488] font-bold">→</span> 자기소개 + 사업 이야기 나누기</li>
+              <li class="flex gap-2"><span class="text-[#0d9488] font-bold">→</span> <span data-i18n="d1-i1">오후 2시~ 체크인 + 웨이브웍스 입실</span></li>
+              <li class="flex gap-2"><span class="text-[#0d9488] font-bold">→</span> <span data-i18n="d1-i2">자유 업무 셋업 시간</span></li>
+              <li class="flex gap-2"><span class="text-[#0d9488] font-bold">→</span> <span data-i18n="d1-i3">저녁 6시 바베큐 네트워킹 (포함)</span></li>
+              <li class="flex gap-2"><span class="text-[#0d9488] font-bold">→</span> <span data-i18n="d1-i4">자기소개 + 사업 이야기 나누기</span></li>
             </ul>
           </div>
         </div>
         <div class="relative pl-12 pb-10 border-l-2 border-blue-400/40">
           <div class="absolute left-0 -translate-x-1/2 w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center font-bold text-white text-sm">D2</div>
           <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-            <p class="text-[#0f172a] font-bold text-lg mb-3">업무 몰입 · 성장 세션 <span class="text-slate-400 text-sm font-normal">(6/18 목)</span></p>
+            <p class="text-[#0f172a] font-bold text-lg mb-3" data-i18n="d2-title">업무 몰입 · 성장 세션 <span class="text-slate-400 text-sm font-normal">(6/18 목)</span></p>
             <ul class="space-y-2 text-slate-600 text-sm">
-              <li class="flex gap-2"><span class="text-blue-500 font-bold">→</span> 오전 자유 업무 (Deep Work)</li>
-              <li class="flex gap-2"><span class="text-blue-500 font-bold">→</span> 오후 성장 세션 2시간</li>
-              <li class="flex gap-2"><span class="text-blue-500 font-bold">→</span> AI 실무 활용 + 비즈니스 리뷰</li>
-              <li class="flex gap-2"><span class="text-blue-500 font-bold">→</span> 저녁 자유 — 서퍼스비치 or 휴식</li>
+              <li class="flex gap-2"><span class="text-blue-500 font-bold">→</span> <span data-i18n="d2-i1">오전 자유 업무 (Deep Work)</span></li>
+              <li class="flex gap-2"><span class="text-blue-500 font-bold">→</span> <span data-i18n="d2-i2">오후 성장 세션 2시간</span></li>
+              <li class="flex gap-2"><span class="text-blue-500 font-bold">→</span> <span data-i18n="d2-i3">AI 실무 활용 + 비즈니스 리뷰</span></li>
+              <li class="flex gap-2"><span class="text-blue-500 font-bold">→</span> <span data-i18n="d2-i4">저녁 자유 — 서퍼스비치 or 휴식</span></li>
             </ul>
           </div>
         </div>
         <div class="relative pl-12">
           <div class="absolute left-0 -translate-x-1/2 w-10 h-10 bg-violet-500 rounded-full flex items-center justify-center font-bold text-white text-sm">D3</div>
           <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-            <p class="text-[#0f172a] font-bold text-lg mb-3">정리 · 회복 · 출발 <span class="text-slate-400 text-sm font-normal">(6/19 금)</span></p>
+            <p class="text-[#0f172a] font-bold text-lg mb-3" data-i18n="d3-title">정리 · 회복 · 출발 <span class="text-slate-400 text-sm font-normal">(6/19 금)</span></p>
             <ul class="space-y-2 text-slate-600 text-sm">
-              <li class="flex gap-2"><span class="text-violet-500 font-bold">→</span> 오전 자유 업무 or 바다 산책</li>
-              <li class="flex gap-2"><span class="text-violet-500 font-bold">→</span> 정리 세션 — 3일 인사이트 공유</li>
-              <li class="flex gap-2"><span class="text-violet-500 font-bold">→</span> 오후 12시 체크아웃</li>
-              <li class="flex gap-2"><span class="text-violet-500 font-bold">→</span> 이후 개별 자유 일정</li>
+              <li class="flex gap-2"><span class="text-violet-500 font-bold">→</span> <span data-i18n="d3-i1">오전 자유 업무 or 바다 산책</span></li>
+              <li class="flex gap-2"><span class="text-violet-500 font-bold">→</span> <span data-i18n="d3-i2">정리 세션 — 3일 인사이트 공유</span></li>
+              <li class="flex gap-2"><span class="text-violet-500 font-bold">→</span> <span data-i18n="d3-i3">오후 12시 체크아웃</span></li>
+              <li class="flex gap-2"><span class="text-violet-500 font-bold">→</span> <span data-i18n="d3-i4">이후 개별 자유 일정</span></li>
             </ul>
           </div>
         </div>
@@ -315,14 +276,14 @@
   <section class="py-20 px-5 bg-white">
     <div class="max-w-4xl mx-auto text-center">
       <p class="text-[#0d9488] text-xs font-bold tracking-widest uppercase mb-3">Who is this for?</p>
-      <h2 class="text-3xl md:text-4xl font-extrabold text-[#0f172a] mb-10">이런 분께 딱 맞습니다</h2>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-[#0f172a] mb-10" data-i18n="who-title">이런 분께 딱 맞습니다</h2>
       <div class="flex flex-wrap justify-center gap-3">
-        <span class="bg-[#f0fdfa] text-[#0f766e] border border-teal-200 font-semibold px-5 py-3 rounded-full text-sm">온라인 셀러</span>
-        <span class="bg-[#f0fdfa] text-[#0f766e] border border-teal-200 font-semibold px-5 py-3 rounded-full text-sm">창업자 · 스타트업</span>
-        <span class="bg-[#f0fdfa] text-[#0f766e] border border-teal-200 font-semibold px-5 py-3 rounded-full text-sm">1인 기업가</span>
-        <span class="bg-[#f0fdfa] text-[#0f766e] border border-teal-200 font-semibold px-5 py-3 rounded-full text-sm">프리랜서</span>
-        <span class="bg-[#f0fdfa] text-[#0f766e] border border-teal-200 font-semibold px-5 py-3 rounded-full text-sm">소규모 팀 리더</span>
-        <span class="bg-[#f0fdfa] text-[#0f766e] border border-teal-200 font-semibold px-5 py-3 rounded-full text-sm">일+휴식 동시에 정리하고 싶은 분</span>
+        <span class="bg-[#f0fdfa] text-[#0f766e] border border-teal-200 font-semibold px-5 py-3 rounded-full text-sm" data-i18n="who-t1">온라인 셀러</span>
+        <span class="bg-[#f0fdfa] text-[#0f766e] border border-teal-200 font-semibold px-5 py-3 rounded-full text-sm" data-i18n="who-t2">창업자 · 스타트업</span>
+        <span class="bg-[#f0fdfa] text-[#0f766e] border border-teal-200 font-semibold px-5 py-3 rounded-full text-sm" data-i18n="who-t3">1인 기업가</span>
+        <span class="bg-[#f0fdfa] text-[#0f766e] border border-teal-200 font-semibold px-5 py-3 rounded-full text-sm" data-i18n="who-t4">프리랜서</span>
+        <span class="bg-[#f0fdfa] text-[#0f766e] border border-teal-200 font-semibold px-5 py-3 rounded-full text-sm" data-i18n="who-t5">소규모 팀 리더</span>
+        <span class="bg-[#f0fdfa] text-[#0f766e] border border-teal-200 font-semibold px-5 py-3 rounded-full text-sm" data-i18n="who-t6">일+휴식 동시에 정리하고 싶은 분</span>
       </div>
     </div>
   </section>
@@ -330,34 +291,21 @@
   <!-- 신청 CTA -->
   <section id="apply" class="py-24 px-5 bg-[#0f766e]">
     <div class="max-w-xl mx-auto text-center">
-      <span class="inline-block bg-white/15 text-white text-xs font-bold px-4 py-2 rounded-full border border-white/25 mb-6">
-        1기 파일럿 · 선착순 마감
-      </span>
-      <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4">지금 신청하세요</h2>
-      <p class="text-teal-100 mb-6 text-base">2026년 6월 17일(수) – 19일(금) · 1기 파일럿 단독 운영</p>
+      <span class="inline-block bg-white/15 text-white text-xs font-bold px-4 py-2 rounded-full border border-white/25 mb-6" data-i18n="cta-badge">1기 파일럿 · 선착순 마감</span>
+      <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4" data-i18n="cta-title">지금 신청하세요</h2>
+      <p class="text-teal-100 mb-6 text-base" data-i18n="cta-sub">2026년 6월 17일(수) – 19일(금) · 1기 파일럿 단독 운영</p>
       <div class="bg-white rounded-3xl p-8 shadow-2xl mb-8">
-        <p class="text-slate-500 text-sm font-medium mb-1">1기 파일럿 특별가</p>
+        <p class="text-slate-500 text-sm font-medium mb-1" data-i18n="cta-price-label">1기 파일럿 특별가</p>
         <p class="text-5xl md:text-6xl font-extrabold text-[#0f172a] mb-1">₩299,000</p>
-        <p class="text-slate-500 text-sm">VAT 포함 · 숙박·코워킹·세션 전체 포함</p>
-        <p class="text-[#0d9488] text-xs font-semibold mt-2">세금계산서 · 현금영수증 발행 가능</p>
+        <p class="text-slate-500 text-sm" data-i18n="cta-price-note">VAT 포함 · 숙박·코워킹·세션 전체 포함</p>
+        <p class="text-[#0d9488] text-xs font-semibold mt-2" data-i18n="cta-tax-note">세금계산서 · 현금영수증 발행 가능</p>
       </div>
       <div class="flex flex-col gap-3">
-        <a href="#form"
-          class="bg-white text-[#0f766e] font-bold py-4 rounded-full hover:bg-teal-50 transition-all text-base">
-          신청 폼 작성하기 →
-        </a>
-        <a href="http://pf.kakao.com/_xiPxbXG/chat" target="_blank"
-          class="bg-yellow-400 text-gray-900 font-bold py-4 rounded-full hover:bg-yellow-300 transition-all text-base">
-          💬 카카오 오픈채팅 문의
-        </a>
-        <a href="mailto:hello@wakation.kr"
-          class="bg-transparent text-white font-semibold py-3.5 rounded-full border-2 border-white/50 hover:bg-white/10 transition-all text-sm">
-          이메일 문의 — hello@wakation.kr
-        </a>
+        <a href="#form" class="bg-white text-[#0f766e] font-bold py-4 rounded-full hover:bg-teal-50 transition-all text-base" data-i18n="cta-btn1">신청 폼 작성하기 →</a>
+        <a href="http://pf.kakao.com/_xiPxbXG/chat" target="_blank" class="bg-yellow-400 text-gray-900 font-bold py-4 rounded-full hover:bg-yellow-300 transition-all text-base" data-i18n="cta-btn2">💬 카카오 오픈채팅 문의</a>
+        <a href="mailto:hello@wakation.kr" class="bg-transparent text-white font-semibold py-3.5 rounded-full border-2 border-white/50 hover:bg-white/10 transition-all text-sm" data-i18n="cta-btn3">이메일 문의 — hello@wakation.kr</a>
       </div>
-      <p class="text-teal-200/90 text-xs mt-6">
-        신청 후 담당자 확인 연락 드립니다 · 단체(3인+) 별도 문의 가능
-      </p>
+      <p class="text-teal-200/90 text-xs mt-6" data-i18n="cta-footer-note">신청 후 담당자 확인 연락 드립니다 · 단체(3인+) 별도 문의 가능</p>
     </div>
   </section>
 
@@ -365,145 +313,128 @@
   <section id="form" class="py-24 px-5 bg-white">
     <div class="max-w-2xl mx-auto">
       <p class="text-[#0d9488] text-xs font-bold tracking-widest uppercase mb-3 text-center">Apply</p>
-      <h2 class="text-3xl md:text-4xl font-extrabold text-[#0f172a] mb-3 text-center">신청 폼</h2>
-      <p class="text-slate-500 text-sm text-center mb-10">제출 후 담당자가 48시간 내 확인 연락 드립니다. 결제는 확정 안내 후 진행됩니다.</p>
-
+      <h2 class="text-3xl md:text-4xl font-extrabold text-[#0f172a] mb-3 text-center" data-i18n="form-title">신청 폼</h2>
+      <p class="text-slate-500 text-sm text-center mb-10" data-i18n="form-sub">제출 후 담당자가 48시간 내 확인 연락 드립니다. 결제는 확정 안내 후 진행됩니다.</p>
       <form id="apply-form" class="space-y-10" onsubmit="handleSubmit(event)" novalidate>
-
-        <!-- 1. 기본 정보 -->
         <fieldset>
           <legend class="flex items-center gap-3 mb-5">
             <span class="w-7 h-7 bg-[#0d9488] rounded-full flex items-center justify-center text-white text-xs font-extrabold shrink-0">1</span>
-            <span class="text-[#0f172a] font-extrabold text-lg">기본 정보</span>
+            <span class="text-[#0f172a] font-extrabold text-lg" data-i18n="form-s1">기본 정보</span>
           </legend>
           <div class="grid sm:grid-cols-2 gap-4">
             <div>
-              <label class="block text-sm font-semibold text-slate-700 mb-1.5">이름 <span class="text-red-500">*</span></label>
-              <input type="text" name="name" required placeholder="홍길동" class="field" />
+              <label class="block text-sm font-semibold text-slate-700 mb-1.5"><span data-i18n="f-name">이름</span> <span class="text-red-500">*</span></label>
+              <input type="text" name="name" required class="field" data-i18n-ph="ph-name" placeholder="홍길동" />
             </div>
             <div>
-              <label class="block text-sm font-semibold text-slate-700 mb-1.5">연락처 <span class="text-red-500">*</span></label>
-              <input type="tel" name="phone" required placeholder="010-0000-0000" class="field" />
+              <label class="block text-sm font-semibold text-slate-700 mb-1.5"><span data-i18n="f-phone">연락처</span> <span class="text-red-500">*</span></label>
+              <input type="tel" name="phone" required class="field" data-i18n-ph="ph-phone" placeholder="010-0000-0000" />
             </div>
             <div class="sm:col-span-2">
-              <label class="block text-sm font-semibold text-slate-700 mb-1.5">이메일 <span class="text-red-500">*</span></label>
-              <input type="email" name="email" required placeholder="hello@example.com" class="field" />
+              <label class="block text-sm font-semibold text-slate-700 mb-1.5"><span data-i18n="f-email">이메일</span> <span class="text-red-500">*</span></label>
+              <input type="email" name="email" required class="field" placeholder="hello@example.com" />
             </div>
           </div>
         </fieldset>
-
-        <!-- 2. 참가 정보 -->
         <fieldset>
           <legend class="flex items-center gap-3 mb-5">
             <span class="w-7 h-7 bg-[#0d9488] rounded-full flex items-center justify-center text-white text-xs font-extrabold shrink-0">2</span>
-            <span class="text-[#0f172a] font-extrabold text-lg">참가 정보</span>
+            <span class="text-[#0f172a] font-extrabold text-lg" data-i18n="form-s2">참가 정보</span>
           </legend>
           <div class="space-y-5">
             <div>
               <label class="block text-sm font-semibold text-slate-700 mb-2">
-                참가 목적 <span class="text-red-500">*</span>
-                <span class="text-slate-400 font-normal ml-1">(복수 선택 가능)</span>
+                <span data-i18n="f-purpose">참가 목적</span> <span class="text-red-500">*</span>
+                <span class="text-slate-400 font-normal ml-1" data-i18n="f-multi">(복수 선택 가능)</span>
               </label>
               <div class="grid grid-cols-2 gap-2">
                 <label class="flex items-center gap-2.5 bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 cursor-pointer hover:border-[#0d9488] transition-colors">
                   <input type="checkbox" name="purpose" value="deep-work" class="accent-[#0d9488] w-4 h-4 shrink-0" />
-                  <span class="text-sm text-slate-700">💼 집중 업무 처리</span>
+                  <span class="text-sm text-slate-700" data-i18n="p1">💼 집중 업무 처리</span>
                 </label>
                 <label class="flex items-center gap-2.5 bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 cursor-pointer hover:border-[#0d9488] transition-colors">
                   <input type="checkbox" name="purpose" value="networking" class="accent-[#0d9488] w-4 h-4 shrink-0" />
-                  <span class="text-sm text-slate-700">🤝 네트워킹</span>
+                  <span class="text-sm text-slate-700" data-i18n="p2">🤝 네트워킹</span>
                 </label>
                 <label class="flex items-center gap-2.5 bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 cursor-pointer hover:border-[#0d9488] transition-colors">
                   <input type="checkbox" name="purpose" value="rest" class="accent-[#0d9488] w-4 h-4 shrink-0" />
-                  <span class="text-sm text-slate-700">🌊 휴식 및 회복</span>
+                  <span class="text-sm text-slate-700" data-i18n="p3">🌊 휴식 및 회복</span>
                 </label>
                 <label class="flex items-center gap-2.5 bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 cursor-pointer hover:border-[#0d9488] transition-colors">
                   <input type="checkbox" name="purpose" value="session" class="accent-[#0d9488] w-4 h-4 shrink-0" />
-                  <span class="text-sm text-slate-700">🚀 성장 세션 참여</span>
+                  <span class="text-sm text-slate-700" data-i18n="p4">🚀 성장 세션 참여</span>
                 </label>
               </div>
             </div>
             <div>
-              <label class="block text-sm font-semibold text-slate-700 mb-1.5">현재 직무 또는 업계 <span class="text-red-500">*</span></label>
-              <input type="text" name="job" required placeholder="예: 마케팅 프리랜서 / 이커머스 셀러 / IT 스타트업 대표" class="field" />
+              <label class="block text-sm font-semibold text-slate-700 mb-1.5"><span data-i18n="f-job">현재 직무 또는 업계</span> <span class="text-red-500">*</span></label>
+              <input type="text" name="job" required class="field" data-i18n-ph="ph-job" placeholder="예: 마케팅 프리랜서 / 이커머스 셀러 / IT 스타트업 대표" />
             </div>
             <div>
-              <label class="block text-sm font-semibold text-slate-700 mb-1.5">희망 참가 일정 <span class="text-red-500">*</span></label>
-              <input type="text" name="date" required placeholder="1기: 2026년 6월 17일(수) – 19일(금)" class="field" />
-              <p class="text-slate-400 text-xs mt-1.5">6월 17일(수) 오후 체크인 → 19일(금) 오후 체크아웃. 최종 일정은 확인 후 안내 드립니다.</p>
+              <label class="block text-sm font-semibold text-slate-700 mb-1.5"><span data-i18n="f-date">희망 참가 일정</span> <span class="text-red-500">*</span></label>
+              <input type="text" name="date" required class="field" placeholder="1기: 2026년 6월 17일(수) – 19일(금)" />
+              <p class="text-slate-400 text-xs mt-1.5" data-i18n="f-date-hint">6월 17일(수) 오후 체크인 → 19일(금) 오후 체크아웃. 최종 일정은 확인 후 안내 드립니다.</p>
             </div>
           </div>
         </fieldset>
-
-        <!-- 3. 행정 & 운영 준비 -->
         <fieldset>
           <legend class="flex items-center gap-3 mb-5">
             <span class="w-7 h-7 bg-[#0d9488] rounded-full flex items-center justify-center text-white text-xs font-extrabold shrink-0">3</span>
-            <span class="text-[#0f172a] font-extrabold text-lg">행정 & 운영 준비</span>
+            <span class="text-[#0f172a] font-extrabold text-lg" data-i18n="form-s3">행정 &amp; 운영 준비</span>
           </legend>
           <div class="space-y-5">
             <div>
-              <label class="block text-sm font-semibold text-slate-700 mb-2">세금계산서 발행이 필요하신가요?</label>
+              <label class="block text-sm font-semibold text-slate-700 mb-2" data-i18n="f-tax-q">세금계산서 발행이 필요하신가요?</label>
               <div class="flex gap-4 mb-3">
                 <label class="flex items-center gap-2 cursor-pointer">
                   <input type="radio" name="tax" value="yes" onchange="toggleTax(true)" class="accent-[#0d9488] w-4 h-4" />
-                  <span class="text-sm text-slate-700">네, 필요합니다</span>
+                  <span class="text-sm text-slate-700" data-i18n="f-tax-yes">네, 필요합니다</span>
                 </label>
                 <label class="flex items-center gap-2 cursor-pointer">
                   <input type="radio" name="tax" value="no" onchange="toggleTax(false)" checked class="accent-[#0d9488] w-4 h-4" />
-                  <span class="text-sm text-slate-700">아니요</span>
+                  <span class="text-sm text-slate-700" data-i18n="f-tax-no">아니요</span>
                 </label>
               </div>
               <div id="tax-detail" class="bg-slate-50 border border-slate-200 rounded-xl p-4">
-                <label class="block text-sm font-semibold text-slate-700 mb-1.5">사업자등록번호</label>
-                <input type="text" name="biznum" placeholder="000-00-00000" class="field" />
-                <p class="text-slate-400 text-xs mt-1.5">담당자 확인 후 발행 절차를 별도 안내 드립니다.</p>
+                <label class="block text-sm font-semibold text-slate-700 mb-1.5" data-i18n="f-biznum">사업자등록번호</label>
+                <input type="text" name="biznum" class="field" placeholder="000-00-00000" />
+                <p class="text-slate-400 text-xs mt-1.5" data-i18n="f-biznum-hint">담당자 확인 후 발행 절차를 별도 안내 드립니다.</p>
               </div>
             </div>
             <div>
               <label class="block text-sm font-semibold text-slate-700 mb-1.5">
-                식단 특이사항
-                <span class="text-slate-400 font-normal ml-1">(선택)</span>
+                <span data-i18n="f-diet">식단 특이사항</span>
+                <span class="text-slate-400 font-normal ml-1" data-i18n="f-opt">(선택)</span>
               </label>
-              <textarea name="diet" rows="2" placeholder="알레르기, 채식, 기타 식단 제한이 있으면 적어주세요. 없으면 비워두세요." class="field resize-none"></textarea>
+              <textarea name="diet" rows="2" class="field resize-none" data-i18n-ph="ph-diet" placeholder="알레르기, 채식, 기타 식단 제한이 있으면 적어주세요. 없으면 비워두세요."></textarea>
             </div>
           </div>
         </fieldset>
-
-        <!-- 4. 마지막 질문 -->
         <fieldset>
           <legend class="flex items-center gap-3 mb-5">
             <span class="w-7 h-7 bg-[#0d9488] rounded-full flex items-center justify-center text-white text-xs font-extrabold shrink-0">4</span>
-            <span class="text-[#0f172a] font-extrabold text-lg">마지막 질문</span>
+            <span class="text-[#0f172a] font-extrabold text-lg" data-i18n="form-s4">마지막 질문</span>
           </legend>
           <div>
             <label class="block text-sm font-semibold text-slate-700 mb-1.5">
-              이번 워케이션에서 해결하고 싶은 고민 1가지 <span class="text-red-500">*</span>
+              <span data-i18n="f-challenge">이번 워케이션에서 해결하고 싶은 고민 1가지</span> <span class="text-red-500">*</span>
             </label>
-            <textarea name="challenge" required rows="3" placeholder="예: 사업 방향을 다시 잡고 싶다 / AI 툴을 실무에 어떻게 쓸지 모르겠다 / 비슷한 업종 사람들과 연결되고 싶다" class="field resize-none"></textarea>
-            <p class="text-slate-400 text-xs mt-1.5">성장 세션 구성에 참고합니다. 솔직하게 적어주실수록 좋아요.</p>
+            <textarea name="challenge" required rows="3" class="field resize-none" data-i18n-ph="ph-challenge" placeholder="예: 사업 방향을 다시 잡고 싶다 / AI 툴을 실무에 어떻게 쓸지 모르겠다 / 비슷한 업종 사람들과 연결되고 싶다"></textarea>
+            <p class="text-slate-400 text-xs mt-1.5" data-i18n="f-challenge-hint">성장 세션 구성에 참고합니다. 솔직하게 적어주실수록 좋아요.</p>
           </div>
         </fieldset>
-
         <div>
-          <button type="submit"
-            class="w-full bg-[#0d9488] text-white font-extrabold py-4 rounded-full hover:bg-[#0f766e] transition-all text-base shadow-lg shadow-teal-600/20">
-            신청서 제출하기 →
-          </button>
-          <p class="text-slate-400 text-xs text-center mt-3">결제는 담당자 확인 후 별도 안내 · 취소: 출발 7일 전 전액 환불</p>
+          <button type="submit" class="w-full bg-[#0d9488] text-white font-extrabold py-4 rounded-full hover:bg-[#0f766e] transition-all text-base shadow-lg shadow-teal-600/20" data-i18n="form-submit">신청서 제출하기 →</button>
+          <p class="text-slate-400 text-xs text-center mt-3" data-i18n="form-note">결제는 담당자 확인 후 별도 안내 · 취소: 출발 7일 전 전액 환불</p>
         </div>
       </form>
-
-      <!-- 제출 완료 상태 -->
       <div id="form-success" class="hidden text-center py-12">
         <div class="w-16 h-16 bg-[#0d9488]/10 rounded-full flex items-center justify-center mx-auto mb-5">
-          <svg class="w-8 h-8 text-[#0d9488]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-          </svg>
+          <svg class="w-8 h-8 text-[#0d9488]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
         </div>
-        <h3 class="text-2xl font-extrabold text-[#0f172a] mb-2">신청이 접수됐습니다!</h3>
-        <p class="text-slate-600 mb-1">48시간 내에 담당자가 연락 드리겠습니다.</p>
-        <p class="text-slate-400 text-sm">확인 이메일이 오지 않으면 <a href="mailto:hello@wakation.kr" class="text-[#0d9488] font-semibold">hello@wakation.kr</a>로 문의해 주세요.</p>
+        <h3 class="text-2xl font-extrabold text-[#0f172a] mb-2" data-i18n="success-title">신청이 접수됐습니다!</h3>
+        <p class="text-slate-600 mb-1" data-i18n="success-sub">48시간 내에 담당자가 연락 드리겠습니다.</p>
+        <p class="text-slate-400 text-sm" data-i18n="success-email">확인 이메일이 오지 않으면 <a href="mailto:hello@wakation.kr" class="text-[#0d9488] font-semibold">hello@wakation.kr</a>로 문의해 주세요.</p>
       </div>
     </div>
   </section>
@@ -511,35 +442,35 @@
   <!-- FAQ -->
   <section id="faq" class="py-20 px-5 bg-[#f8f6f3]">
     <div class="max-w-2xl mx-auto">
-      <h2 class="text-3xl font-extrabold text-[#0f172a] mb-10 text-center">자주 묻는 질문</h2>
+      <h2 class="text-3xl font-extrabold text-[#0f172a] mb-10 text-center" data-i18n="faq-title">자주 묻는 질문</h2>
       <div class="space-y-4">
         <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-          <p class="text-[#0f172a] font-bold mb-2">Q. 혼자 참가해도 되나요?</p>
-          <p class="text-slate-600 text-sm leading-relaxed">네, 혼자 오시는 분들이 대부분입니다. 첫날 바베큐 네트워킹으로 자연스럽게 연결됩니다.</p>
+          <p class="text-[#0f172a] font-bold mb-2" data-i18n="fq1">Q. 혼자 참가해도 되나요?</p>
+          <p class="text-slate-600 text-sm leading-relaxed" data-i18n="fa1">네, 혼자 오시는 분들이 대부분입니다. 첫날 바베큐 네트워킹으로 자연스럽게 연결됩니다.</p>
         </div>
         <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-          <p class="text-[#0f172a] font-bold mb-2">Q. 업무 환경은 어떤가요?</p>
-          <p class="text-slate-600 text-sm leading-relaxed">웨이브웍스 양양에서 전용 데스크, 고속 WiFi, 회의실을 종일 이용할 수 있습니다.</p>
+          <p class="text-[#0f172a] font-bold mb-2" data-i18n="fq2">Q. 업무 환경은 어떤가요?</p>
+          <p class="text-slate-600 text-sm leading-relaxed" data-i18n="fa2">웨이브웍스 양양에서 전용 데스크, 고속 WiFi, 회의실을 종일 이용할 수 있습니다.</p>
         </div>
         <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-          <p class="text-[#0f172a] font-bold mb-2">Q. 일정은 언제인가요?</p>
-          <p class="text-slate-600 text-sm leading-relaxed">1기 파일럿은 <strong>2026년 6월 17일(수) – 19일(금)</strong>로 운영됩니다. 수요일 오후 체크인 → 금요일 오후 체크아웃 기준입니다.</p>
+          <p class="text-[#0f172a] font-bold mb-2" data-i18n="fq3">Q. 일정은 언제인가요?</p>
+          <p class="text-slate-600 text-sm leading-relaxed" data-i18n="fa3">1기 파일럿은 <strong>2026년 6월 17일(수) – 19일(금)</strong>으로 운영됩니다. 수요일 오후 체크인 → 금요일 오후 체크아웃 기준입니다.</p>
         </div>
         <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-          <p class="text-[#0f172a] font-bold mb-2">Q. 식사는 어떻게 되나요?</p>
-          <p class="text-slate-600 text-sm leading-relaxed">첫날 저녁 바베큐는 참가비에 포함됩니다. 조·중식은 자율이며, 숙소 및 웨이브웍스 인근에 카페와 식당이 가까이 있어 편리하게 이용하실 수 있습니다.</p>
+          <p class="text-[#0f172a] font-bold mb-2" data-i18n="fq4">Q. 식사는 어떻게 되나요?</p>
+          <p class="text-slate-600 text-sm leading-relaxed" data-i18n="fa4">첫날 저녁 바베큐는 참가비에 포함됩니다. 조·중식은 자율이며, 숙소 및 웨이브웍스 인근에 카페와 식당이 가까이 있습니다.</p>
         </div>
         <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-          <p class="text-[#0f172a] font-bold mb-2">Q. 자차 주차 및 대중교통 접근은?</p>
-          <p class="text-slate-600 text-sm leading-relaxed">숙소 및 웨이브웍스 양양 내 주차 공간을 이용하실 수 있습니다. 대중교통의 경우 서울에서 양양행 고속버스(동서울 → 양양) 이용 후 택시 또는 도보로 이동 가능합니다. 상세 오시는 길은 신청 확정 후 안내 드립니다.</p>
+          <p class="text-[#0f172a] font-bold mb-2" data-i18n="fq5">Q. 자차 주차 및 대중교통 접근은?</p>
+          <p class="text-slate-600 text-sm leading-relaxed" data-i18n="fa5">숙소 및 웨이브웍스 양양 내 주차 공간을 이용하실 수 있습니다. 서울에서 양양행 고속버스(동서울 → 양양) 이용 후 택시 또는 도보로 이동 가능합니다.</p>
         </div>
         <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-          <p class="text-[#0f172a] font-bold mb-2">Q. 세금계산서나 현금영수증 발행이 가능한가요?</p>
-          <p class="text-slate-600 text-sm leading-relaxed">가능합니다. 신청 폼의 행정 항목에서 세금계산서 발행 여부와 사업자등록번호를 남겨주시면 담당자가 확인 후 안내 드립니다.</p>
+          <p class="text-[#0f172a] font-bold mb-2" data-i18n="fq6">Q. 세금계산서나 현금영수증 발행이 가능한가요?</p>
+          <p class="text-slate-600 text-sm leading-relaxed" data-i18n="fa6">가능합니다. 신청 폼 행정 항목에서 사업자등록번호를 남겨주시면 담당자가 안내 드립니다.</p>
         </div>
         <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-          <p class="text-[#0f172a] font-bold mb-2">Q. 취소 및 환불 정책은?</p>
-          <p class="text-slate-600 text-sm leading-relaxed">출발 7일 전까지 전액 환불, 3일 전까지 50% 환불, 이후 환불 불가입니다.</p>
+          <p class="text-[#0f172a] font-bold mb-2" data-i18n="fq7">Q. 취소 및 환불 정책은?</p>
+          <p class="text-slate-600 text-sm leading-relaxed" data-i18n="fa7">출발 7일 전까지 전액 환불, 3일 전까지 50% 환불, 이후 환불 불가입니다.</p>
         </div>
       </div>
     </div>
@@ -550,14 +481,154 @@
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
       <span class="font-extrabold text-xl text-teal-400">Wakation</span>
       <p class="text-slate-400 text-sm">© 2026 Wakation by StayForward. All rights reserved.</p>
-      <a href="https://wakation.kr" target="_blank" rel="noopener"
-        class="text-teal-400 text-sm font-semibold hover:text-teal-300 transition-colors">
-        wakation.kr →
-      </a>
+      <a href="https://wakation.kr" target="_blank" rel="noopener" class="text-teal-400 text-sm font-semibold hover:text-teal-300 transition-colors">wakation.kr →</a>
     </div>
   </footer>
 
   <script>
+    const T = {
+      ko: {
+        "nav-about":"소개","nav-space":"공간","nav-includes":"포함","nav-schedule":"일정","nav-apply":"신청하기",
+        "hero-badge":"1기 파일럿 모집중","hero-badge2":"강원도 양양","hero-badge3":"2박 3일",
+        "hero-title":"사무실을 벗어나도,<br/><span class=\"text-[#0d9488]\">사업은 멈추지 않게.</span>",
+        "hero-sub":"양양 바다 앞에서 일하고, 쉬고, 다시 성장 방향을 잡는 2박 3일 워케이션 성장 프로그램.",
+        "hero-cta1":"지금 신청하기","hero-cta2":"프로그램 상세보기",
+        "stat1-val":"2박 3일","stat1-label":"2인 1실 기준 숙박","stat2-val":"종일","stat2-label":"코워킹 이용","stat3-label":"파일럿 특가",
+        "bar1":"2박 3일 숙박 (2인 1실 기준)","bar2":"웨이브웍스 양양 종일 이용","bar3":"바베큐 네트워킹","bar4":"성장 세션","bar5":"세금계산서 발행 가능","bar6":"선착순 마감",
+        "gallery-title":"일, 회복, 연결 — 한곳에서","gallery-sub":"업무에 몰입할 공간, 바다로 충전하는 휴식, 함께 성장하는 사람들. 사진으로 먼저 느껴보세요.",
+        "gc1-title":"업무 몰입","gc1-desc":"웨이브웍스 양양 — 전용 데스크, 고속 WiFi, 회의실",
+        "gc2-title":"바다 회복","gc2-desc":"양양 해변 · 서퍼스비치 — 일상에서 벗어나 에너지 충전",
+        "gc3-title":"네트워킹","gc3-desc":"첫날 저녁 바베큐 — 사업 이야기를 나누는 시간",
+        "about-title":"단순 여행 패키지가 아닙니다.<br/><span class=\"text-slate-500 font-bold\">체류형 업무·성장 프로그램입니다.</span>",
+        "about-sub":"강원도 양양에서 2박 3일 동안 업무 환경, 휴식, 성장 세션을 한 흐름으로 설계했습니다. 혼자 와도, 팀으로 와도 자연스럽게 연결됩니다.",
+        "about-c1-title":"업무 몰입","about-c1-desc":"방해 없이 집중할 수 있는 코워킹 환경",
+        "about-c2-title":"회복","about-c2-desc":"바다 앞에서 리셋하는 진짜 휴식",
+        "about-c3-title":"성장 세션","about-c3-desc":"AI 실무, 사업 방향 — 같은 목적의 사람들과",
+        "inc-title":"참가비에 전부 포함됩니다",
+        "inc-c1-title":"2박 3일 숙박","inc-c1-desc":"2인 1실 기준 · 1인실 희망 시 +30,000원/박 · 양양 해변 인근 워케이션 전용 숙소",
+        "inc-c2-title":"웨이브웍스 양양 종일 이용","inc-c2-desc":"전용 데스크 + 회의실 + 고속 WiFi",
+        "inc-c3-title":"첫날 바베큐 네트워킹","inc-c3-desc":"참가자 전원 자기소개 + 사업 현황 공유",
+        "inc-c4-title":"성장 세션","inc-c4-desc":"AI 실무 + 사업 방향 정리 워크숍","inc-c4-host":"진행: Wakation 호스트 팀 · AI 실무 전문가",
+        "inc-c5-title":"커뮤니티 연결","inc-c5-desc":"1인 사업자·프리랜서 동료와 자연스러운 연결",
+        "inc-c6-title":"자유 업무 + 회복 시간","inc-c6-desc":"강요 없이 내 페이스대로 일하고 쉬는 시간",
+        "sch-title":"2박 3일 프로그램",
+        "d1-title":"도착 · 셋업 · 네트워킹 <span class=\"text-slate-400 text-sm font-normal\">(6/17 수)</span>",
+        "d1-i1":"오후 2시~ 체크인 + 웨이브웍스 입실","d1-i2":"자유 업무 셋업 시간","d1-i3":"저녁 6시 바베큐 네트워킹 (포함)","d1-i4":"자기소개 + 사업 이야기 나누기",
+        "d2-title":"업무 몰입 · 성장 세션 <span class=\"text-slate-400 text-sm font-normal\">(6/18 목)</span>",
+        "d2-i1":"오전 자유 업무 (Deep Work)","d2-i2":"오후 성장 세션 2시간","d2-i3":"AI 실무 활용 + 비즈니스 리뷰","d2-i4":"저녁 자유 — 서퍼스비치 or 휴식",
+        "d3-title":"정리 · 회복 · 출발 <span class=\"text-slate-400 text-sm font-normal\">(6/19 금)</span>",
+        "d3-i1":"오전 자유 업무 or 바다 산책","d3-i2":"정리 세션 — 3일 인사이트 공유","d3-i3":"오후 12시 체크아웃","d3-i4":"이후 개별 자유 일정",
+        "who-title":"이런 분께 딱 맞습니다",
+        "who-t1":"온라인 셀러","who-t2":"창업자 · 스타트업","who-t3":"1인 기업가","who-t4":"프리랜서","who-t5":"소규모 팀 리더","who-t6":"일+휴식 동시에 정리하고 싶은 분",
+        "cta-badge":"1기 파일럿 · 선착순 마감","cta-title":"지금 신청하세요","cta-sub":"2026년 6월 17일(수) – 19일(금) · 1기 파일럿 단독 운영",
+        "cta-price-label":"1기 파일럿 특별가","cta-price-note":"VAT 포함 · 숙박·코워킹·세션 전체 포함","cta-tax-note":"세금계산서 · 현금영수증 발행 가능",
+        "cta-btn1":"신청 폼 작성하기 →","cta-btn2":"💬 카카오 오픈채팅 문의","cta-btn3":"이메일 문의 — hello@wakation.kr",
+        "cta-footer-note":"신청 후 담당자 확인 연락 드립니다 · 단체(3인+) 별도 문의 가능",
+        "form-title":"신청 폼","form-sub":"제출 후 담당자가 48시간 내 확인 연락 드립니다. 결제는 확정 안내 후 진행됩니다.",
+        "form-s1":"기본 정보","form-s2":"참가 정보","form-s3":"행정 &amp; 운영 준비","form-s4":"마지막 질문",
+        "f-name":"이름","f-phone":"연락처","f-email":"이메일",
+        "ph-name":"홍길동","ph-phone":"010-0000-0000",
+        "f-purpose":"참가 목적","f-multi":"(복수 선택 가능)",
+        "p1":"💼 집중 업무 처리","p2":"🤝 네트워킹","p3":"🌊 휴식 및 회복","p4":"🚀 성장 세션 참여",
+        "f-job":"현재 직무 또는 업계","ph-job":"예: 마케팅 프리랜서 / 이커머스 셀러 / IT 스타트업 대표",
+        "f-date":"희망 참가 일정","f-date-hint":"6월 17일(수) 오후 체크인 → 19일(금) 오후 체크아웃. 최종 일정은 확인 후 안내 드립니다.",
+        "f-tax-q":"세금계산서 발행이 필요하신가요?","f-tax-yes":"네, 필요합니다","f-tax-no":"아니요",
+        "f-biznum":"사업자등록번호","f-biznum-hint":"담당자 확인 후 발행 절차를 별도 안내 드립니다.",
+        "f-diet":"식단 특이사항","f-opt":"(선택)","ph-diet":"알레르기, 채식, 기타 식단 제한이 있으면 적어주세요. 없으면 비워두세요.",
+        "f-challenge":"이번 워케이션에서 해결하고 싶은 고민 1가지",
+        "ph-challenge":"예: 사업 방향을 다시 잡고 싶다 / AI 툴을 실무에 어떻게 쓸지 모르겠다 / 비슷한 업종 사람들과 연결되고 싶다",
+        "f-challenge-hint":"성장 세션 구성에 참고합니다. 솔직하게 적어주실수록 좋아요.",
+        "form-submit":"신청서 제출하기 →","form-note":"결제는 담당자 확인 후 별도 안내 · 취소: 출발 7일 전 전액 환불",
+        "success-title":"신청이 접수됐습니다!","success-sub":"48시간 내에 담당자가 연락 드리겠습니다.",
+        "success-email":"확인 이메일이 오지 않으면 <a href=\"mailto:hello@wakation.kr\" class=\"text-[#0d9488] font-semibold\">hello@wakation.kr</a>로 문의해 주세요.",
+        "faq-title":"자주 묻는 질문",
+        "fq1":"Q. 혼자 참가해도 되나요?","fa1":"네, 혼자 오시는 분들이 대부분입니다. 첫날 바베큐 네트워킹으로 자연스럽게 연결됩니다.",
+        "fq2":"Q. 업무 환경은 어떤가요?","fa2":"웨이브웍스 양양에서 전용 데스크, 고속 WiFi, 회의실을 종일 이용할 수 있습니다.",
+        "fq3":"Q. 일정은 언제인가요?","fa3":"1기 파일럿은 <strong>2026년 6월 17일(수) – 19일(금)</strong>으로 운영됩니다. 수요일 오후 체크인 → 금요일 오후 체크아웃 기준입니다.",
+        "fq4":"Q. 식사는 어떻게 되나요?","fa4":"첫날 저녁 바베큐는 참가비에 포함됩니다. 조·중식은 자율이며, 숙소 및 웨이브웍스 인근에 카페와 식당이 가까이 있습니다.",
+        "fq5":"Q. 자차 주차 및 대중교통 접근은?","fa5":"숙소 및 웨이브웍스 양양 내 주차 공간을 이용하실 수 있습니다. 서울에서 양양행 고속버스(동서울 → 양양) 이용 후 택시 또는 도보로 이동 가능합니다.",
+        "fq6":"Q. 세금계산서나 현금영수증 발행이 가능한가요?","fa6":"가능합니다. 신청 폼 행정 항목에서 사업자등록번호를 남겨주시면 담당자가 안내 드립니다.",
+        "fq7":"Q. 취소 및 환불 정책은?","fa7":"출발 7일 전까지 전액 환불, 3일 전까지 50% 환불, 이후 환불 불가입니다."
+      },
+      ja: {
+        "nav-about":"概要","nav-space":"スペース","nav-includes":"含まれるもの","nav-schedule":"スケジュール","nav-apply":"申し込む",
+        "hero-badge":"1期パイロット募集中","hero-badge2":"江原道・楊洋","hero-badge3":"2泊3日",
+        "hero-title":"オフィスを離れても、<br/><span class=\"text-[#0d9488]\">仕事は止まらない。</span>",
+        "hero-sub":"楊洋の海辺で働き、休み、再び成長の方向を定める2泊3日ワーケーション成長プログラム。",
+        "hero-cta1":"今すぐ申し込む","hero-cta2":"プログラム詳細",
+        "stat1-val":"2泊3日","stat1-label":"2人1室基準宿泊","stat2-val":"終日","stat2-label":"コワーキング利用","stat3-label":"パイロット特価",
+        "bar1":"2泊3日宿泊（2人1室基準）","bar2":"Waveworks楊洋 終日利用","bar3":"BBQネットワーキング","bar4":"グロースセッション","bar5":"領収書発行可","bar6":"先着順締切",
+        "gallery-title":"仕事、回復、つながり — 一か所で","gallery-sub":"業務に集中できる空間、海で充電する休息、ともに成長する仲間。写真で先に感じてみてください。",
+        "gc1-title":"業務集中","gc1-desc":"Waveworks楊洋 — 専用デスク・高速WiFi・会議室",
+        "gc2-title":"海での回復","gc2-desc":"楊洋ビーチ・サーファーズビーチ — 日常を離れエネルギーを充電",
+        "gc3-title":"ネットワーキング","gc3-desc":"初日夜BBQ — ビジネストークの時間",
+        "about-title":"単なる旅行パッケージではありません。<br/><span class=\"text-slate-500 font-bold\">滞在型業務・成長プログラムです。</span>",
+        "about-sub":"江原道楊洋で2泊3日間、業務環境・休息・成長セッションをひとつの流れに設計しました。一人でも、チームでも自然につながります。",
+        "about-c1-title":"業務集中","about-c1-desc":"邪魔のない集中できるコワーキング環境",
+        "about-c2-title":"回復","about-c2-desc":"海の前でリセットする本当の休息",
+        "about-c3-title":"グロースセッション","about-c3-desc":"AI実務・事業方向 — 同じ目的を持つ仲間と",
+        "inc-title":"参加費にすべて含まれます",
+        "inc-c1-title":"2泊3日宿泊","inc-c1-desc":"2人1室基準 · 1人室希望時 +30,000ウォン/泊 · 楊洋ビーチ近くワーケーション専用施設",
+        "inc-c2-title":"Waveworks楊洋 終日利用","inc-c2-desc":"専用デスク・会議室・高速WiFi",
+        "inc-c3-title":"初日BBQネットワーキング","inc-c3-desc":"全参加者の自己紹介・事業状況シェア",
+        "inc-c4-title":"グロースセッション","inc-c4-desc":"AI実務・事業方向整理ワークショップ","inc-c4-host":"進行: Wakationホストチーム · AI実務専門家",
+        "inc-c5-title":"コミュニティつながり","inc-c5-desc":"個人事業主・フリーランサー仲間と自然なつながり",
+        "inc-c6-title":"自由業務・回復時間","inc-c6-desc":"強制なしで自分のペースで働き、休む時間",
+        "sch-title":"2泊3日プログラム",
+        "d1-title":"到着・セットアップ・ネットワーキング <span class=\"text-slate-400 text-sm font-normal\">(6/17 水)</span>",
+        "d1-i1":"午後2時〜 チェックイン・Waveworks入室","d1-i2":"自由業務セットアップ時間","d1-i3":"夕方6時 BBQネットワーキング（含む）","d1-i4":"自己紹介・ビジネストーク",
+        "d2-title":"業務集中・グロースセッション <span class=\"text-slate-400 text-sm font-normal\">(6/18 木)</span>",
+        "d2-i1":"午前 自由業務（ディープワーク）","d2-i2":"午後 グロースセッション2時間","d2-i3":"AI実務活用・ビジネスレビュー","d2-i4":"夕方自由 — サーファーズビーチまたは休息",
+        "d3-title":"まとめ・回復・出発 <span class=\"text-slate-400 text-sm font-normal\">(6/19 金)</span>",
+        "d3-i1":"午前 自由業務または海辺散歩","d3-i2":"まとめセッション — 3日間のインサイト共有","d3-i3":"午後12時 チェックアウト","d3-i4":"以降 個別自由日程",
+        "who-title":"こんな方にぴったりです",
+        "who-t1":"オンラインセラー","who-t2":"起業家・スタートアップ","who-t3":"ひとり起業家","who-t4":"フリーランサー","who-t5":"小規模チームリーダー","who-t6":"仕事と休息を同時に整理したい方",
+        "cta-badge":"1期パイロット・先着順締切","cta-title":"今すぐ申し込みを","cta-sub":"2026年6月17日(水) – 19日(金)・1期パイロット限定",
+        "cta-price-label":"1期パイロット特別価格","cta-price-note":"VAT含む・宿泊・コワーキング・セッション全て含む","cta-tax-note":"領収書・現金領収書発行可能",
+        "cta-btn1":"申し込みフォームへ →","cta-btn2":"💬 カカオオープンチャット相談","cta-btn3":"メール相談 — hello@wakation.kr",
+        "cta-footer-note":"申込後、担当者より確認のご連絡をいたします · グループ(3名以上)はお問い合わせください",
+        "form-title":"申し込みフォーム","form-sub":"提出後、担当者が48時間以内にご確認のご連絡をいたします。決済は確定後にご案内します。",
+        "form-s1":"基本情報","form-s2":"参加情報","form-s3":"行政・運営準備","form-s4":"最後の質問",
+        "f-name":"お名前","f-phone":"電話番号","f-email":"メールアドレス",
+        "ph-name":"山田太郎","ph-phone":"+81-00-0000-0000",
+        "f-purpose":"参加目的","f-multi":"(複数選択可)",
+        "p1":"💼 集中業務処理","p2":"🤝 ネットワーキング","p3":"🌊 休息・回復","p4":"🚀 グロースセッション参加",
+        "f-job":"現在の職種または業界","ph-job":"例: マーケティングフリーランサー / ECセラー / ITスタートアップ代表",
+        "f-date":"参加希望日程","f-date-hint":"6月17日(水)午後チェックイン → 19日(金)午後チェックアウト。最終日程は確認後にご案内します。",
+        "f-tax-q":"領収書の発行は必要ですか？","f-tax-yes":"はい、必要です","f-tax-no":"いいえ",
+        "f-biznum":"法人番号／事業者番号","f-biznum-hint":"担当者確認後、発行手続きについて別途ご案内します。",
+        "f-diet":"食事の特記事項","f-opt":"(任意)","ph-diet":"アレルギー、ベジタリアン、その他の食事制限があればご記入ください。",
+        "f-challenge":"今回のワーケーションで解決したい悩み1つ",
+        "ph-challenge":"例: 事業の方向性を整理したい / AIツールを実務でどう使うかわからない / 同業者とつながりたい",
+        "f-challenge-hint":"グロースセッションの構成に参考にします。率直にお書きいただくほど良いです。",
+        "form-submit":"申し込みフォームを提出する →","form-note":"決済は担当者確認後に別途ご案内 · キャンセル：出発7日前まで全額返金",
+        "success-title":"申し込みが受け付けられました！","success-sub":"48時間以内に担当者よりご連絡いたします。",
+        "success-email":"確認メールが届かない場合は <a href=\"mailto:hello@wakation.kr\" class=\"text-[#0d9488] font-semibold\">hello@wakation.kr</a> までお問い合わせください。",
+        "faq-title":"よくある質問",
+        "fq1":"Q. 一人でも参加できますか？","fa1":"はい、一人でいらっしゃる方が大半です。初日のBBQネットワーキングで自然につながれます。",
+        "fq2":"Q. 業務環境はどうですか？","fa2":"Waveworks楊洋で専用デスク、高速WiFi、会議室を終日ご利用いただけます。",
+        "fq3":"Q. 日程はいつですか？","fa3":"1期パイロットは<strong>2026年6月17日(水)〜19日(金)</strong>での開催です。水曜日午後チェックイン → 金曜日午後チェックアウトが基準です。",
+        "fq4":"Q. 食事はどうなりますか？","fa4":"初日夕食のBBQは参加費に含まれます。朝・昼食は自由で、宿泊施設及びWaveworks周辺にカフェや食堂が近くにあり便利です。",
+        "fq5":"Q. 自家用車の駐車場と公共交通のアクセスは？","fa5":"宿泊施設及びWaveworks楊洋内の駐車スペースをご利用いただけます。ソウルから楊洋行き高速バス（東ソウル→楊洋）をご利用後、タクシーまたは徒歩でお越しいただけます。",
+        "fq6":"Q. 領収書や現金領収書の発行は可能ですか？","fa6":"可能です。申し込みフォームの行政項目で事業者番号をご記入いただければ、担当者が確認後にご案内します。",
+        "fq7":"Q. キャンセル・返金ポリシーは？","fa7":"出発7日前まで全額返金、3日前まで50%返金、以降返金不可となります。"
+      }
+    };
+
+    function setLang(lang) {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const k = el.getAttribute('data-i18n');
+        if (T[lang][k] !== undefined) el.innerHTML = T[lang][k];
+      });
+      document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+        const k = el.getAttribute('data-i18n-ph');
+        if (T[lang][k] !== undefined) el.placeholder = T[lang][k];
+      });
+      document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+      document.documentElement.lang = lang;
+      localStorage.setItem('wk-lang', lang);
+    }
+
     function toggleTax(show) {
       document.getElementById('tax-detail').style.display = show ? 'block' : 'none';
     }
@@ -583,7 +654,10 @@
         alert('제출 중 오류가 발생했습니다. 이메일(hello@wakation.kr)로 문의해 주세요.');
       }
     }
-  </script>
 
+    window.addEventListener('DOMContentLoaded', () => {
+      setLang(localStorage.getItem('wk-lang') || 'ko');
+    });
+  </script>
 </body>
 </html>
