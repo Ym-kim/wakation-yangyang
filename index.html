@@ -70,8 +70,6 @@
     nav a::after { content:''; position:absolute; bottom:0; left:0; width:0; height:1.5px; background:#0d9488; transition:width .25s ease; }
     nav a:hover::after { width:100%; }
     .who-tag { cursor:default; user-select:none; }
-    .about-card { transition:transform .2s ease, box-shadow .2s ease; }
-    .about-card:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(13,148,136,.12); }
     .faq-answer { display:none; }
     .faq-item.faq-open .faq-answer { display:block; }
     .faq-item.faq-open .faq-chevron { transform:rotate(180deg); }
@@ -84,8 +82,8 @@
     <div class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
       <a href="#" class="font-extrabold text-xl text-[#0f766e] tracking-tight">Wakation</a>
       <nav class="hidden sm:flex items-center gap-6 text-sm font-semibold text-slate-600">
-        <a href="#about" class="hover:text-[#0f766e] transition-colors" data-i18n="nav-about">소개</a>
         <a href="#gallery" class="hover:text-[#0f766e] transition-colors" data-i18n="nav-space">공간</a>
+        <a href="#about" class="hover:text-[#0f766e] transition-colors" data-i18n="nav-about">소개</a>
         <a href="#includes" class="hover:text-[#0f766e] transition-colors" data-i18n="nav-includes">구성</a>
         <a href="#schedule" class="hover:text-[#0f766e] transition-colors" data-i18n="nav-schedule">일정</a>
         <a href="#faq" class="hover:text-[#0f766e] transition-colors">FAQ</a>
@@ -103,7 +101,7 @@
   <!-- Hero -->
   <section class="relative overflow-hidden min-h-[90vh] flex items-center justify-center">
     <img src="/photos/hero.jpg" alt="양양 바다 앞 업무 공간" class="absolute inset-0 w-full h-full object-cover" fetchpriority="high" decoding="async" />
-    <div class="absolute inset-0 bg-gradient-to-b from-black/10 via-[#f8f6f3]/65 to-[#f8f6f3]"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-[#f8f6f3]/30 to-[#f8f6f3]"></div>
     <div class="relative w-full max-w-2xl mx-auto px-6 py-24 text-center fade-in">
       <div class="flex flex-wrap justify-center gap-2 mb-6">
         <span class="bg-[#0d9488] text-white text-xs font-bold px-3 py-1.5 rounded-full" data-i18n="hero-badge">1기 파일럿 모집중</span>
@@ -135,7 +133,7 @@
           <p class="text-slate-600 text-xs font-medium mt-0.5" data-i18n="stat2-label">자유 업무 가능</p>
         </div>
         <div>
-          <p class="text-2xl font-extrabold text-[#0d9488]">₩299K</p>
+          <p class="text-2xl font-extrabold text-[#0d9488]">₩299,000</p>
           <p class="text-slate-600 text-xs font-medium mt-0.5" data-i18n="stat3-label">파일럿 특가</p>
         </div>
       </div>
@@ -186,7 +184,7 @@
         </article>
         <article class="img-card group rounded-2xl overflow-hidden shadow-lg border border-slate-100">
           <div class="aspect-[4/3] overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1529543544282-ea669407fca3?auto=format&fit=crop&w=800&q=75" alt="바베큐 네트워킹" class="img-zoom w-full h-full object-cover" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=75" alt="바베큐 네트워킹" class="img-zoom w-full h-full object-cover" loading="lazy" />
           </div>
           <div class="p-5 bg-white">
             <h3 class="font-bold text-[#0f172a] text-lg mb-1" data-i18n="gc3-title">자유로운 네트워킹</h3>
@@ -206,7 +204,7 @@
           <h2 class="text-xl sm:text-3xl md:text-4xl font-extrabold text-[#0f172a] leading-snug mb-5" data-i18n="about-title">
             단순 여행 패키지가 아닙니다.<br class="hidden sm:block" /><span class="text-slate-500 font-bold">일과 휴식, 네트워킹이 함께 있는 워케이션 경험입니다.</span>
           </h2>
-          <p class="text-slate-600 leading-relaxed mb-4" data-i18n="about-sub">강원도 양양에서 2박 3일 동안 업무 환경, 바다 앞 휴식, 자유로운 네트워킹을 한 흐름으로 경험합니다. 혼자 와도, 팀으로 와도 자연스럽게 연결될 수 있도록 구성했습니다.</p>
+          <p class="text-slate-600 leading-relaxed mb-4" data-i18n="about-sub">강원도 양양에서 2박 3일 동안 업무 환경, 바다 앞 휴식, 자유로운 네트워킹을 한 흐름으로 경험합니다. 혼자와도 팀으로 와도 자연스럽게 연결 됩니다.</p>
           <p class="text-slate-500 text-sm leading-relaxed" data-i18n="about-sub2">양양은 바다가 주는 개방감과 회복감이 큰 지역입니다. 탁 트인 바다를 바라보며 일하고 쉬는 경험은 일상적인 업무 공간에서는 얻기 어려운 전환감을 줍니다. 수도권에서 접근 가능한 거리이면서도 충분히 일상과 분리된 느낌을 주는 곳입니다.</p>
         </div>
         <div class="grid sm:grid-cols-3 lg:grid-cols-1 gap-4 mt-8 lg:mt-0">
@@ -307,7 +305,7 @@
           <h3 class="font-extrabold text-[#0f172a] text-lg mb-4 flex items-center gap-2" data-i18n="inc-out-title">❌ 불포함 사항</h3>
           <ul class="space-y-2.5 text-slate-500 text-sm" data-i18n="inc-out-list">
             <li class="flex gap-2"><span class="font-bold shrink-0">·</span>왕복 교통비</li>
-            <li class="flex gap-2"><span class="font-bold shrink-0">·</span>개인 식비 (바베큐 외 조·중식)</li>
+            <li class="flex gap-2"><span class="font-bold shrink-0">·</span>개인 식비 (1일차 바베큐외 식사)</li>
             <li class="flex gap-2"><span class="font-bold shrink-0">·</span>개인 카페 이용 비용</li>
             <li class="flex gap-2"><span class="font-bold shrink-0">·</span>개별 관광 및 액티비티 비용</li>
             <li class="flex gap-2"><span class="font-bold shrink-0">·</span>기타 개인 경비</li>
@@ -359,27 +357,27 @@
         <div class="relative pl-12 pb-10 border-l-2 border-[#0d9488]/30">
           <div class="absolute left-0 -translate-x-1/2 w-10 h-10 bg-[#0d9488] rounded-full flex items-center justify-center font-bold text-white text-sm">D1</div>
           <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-            <p class="text-[#0f172a] font-bold text-lg mb-1" data-i18n="d1-title">도착, 체크인, 첫 만남</p>
+            <p class="text-[#0f172a] font-bold text-lg mb-1" data-i18n="d1-title">도착, 체크인, 바베큐 파티</p>
             <p class="text-slate-400 text-xs mb-3" data-i18n="d1-date">6월 17일 수요일</p>
             <ul class="space-y-2 text-slate-600 text-sm">
               <li class="flex gap-2"><span class="text-[#0d9488] font-bold">→</span><span data-i18n="d1-i1">오후: 양양 도착 및 체크인</span></li>
               <li class="flex gap-2"><span class="text-[#0d9488] font-bold">→</span><span data-i18n="d1-i2">오후: 오리엔테이션 및 자기소개</span></li>
               <li class="flex gap-2"><span class="text-[#0d9488] font-bold">→</span><span data-i18n="d1-i3">오후: 자유 업무 및 휴식</span></li>
-              <li class="flex gap-2"><span class="text-[#0d9488] font-bold">→</span><span data-i18n="d1-i4">저녁: 자유 네트워킹 시간</span></li>
+              <li class="flex gap-2"><span class="text-[#0d9488] font-bold">→</span><span data-i18n="d1-i4">저녁: 바베큐 네트워킹 파티 (포함)</span></li>
+              <li class="flex gap-2"><span class="text-[#0d9488] font-bold">→</span><span data-i18n="d1-i5">밤: 자유 교류 시간 — 브랜드·서비스·프로젝트 자유 소개</span></li>
             </ul>
           </div>
         </div>
         <div class="relative pl-12 pb-10 border-l-2 border-blue-400/40">
           <div class="absolute left-0 -translate-x-1/2 w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center font-bold text-white text-sm">D2</div>
           <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-            <p class="text-[#0f172a] font-bold text-lg mb-1" data-i18n="d2-title">집중 업무, 바다, 네트워킹 파티</p>
+            <p class="text-[#0f172a] font-bold text-lg mb-1" data-i18n="d2-title">집중 업무, 바다, 자유 네트워킹</p>
             <p class="text-slate-400 text-xs mb-3" data-i18n="d2-date">6월 18일 목요일</p>
             <ul class="space-y-2 text-slate-600 text-sm">
               <li class="flex gap-2"><span class="text-blue-500 font-bold">→</span><span data-i18n="d2-i1">오전: 집중 업무 시간</span></li>
               <li class="flex gap-2"><span class="text-blue-500 font-bold">→</span><span data-i18n="d2-i2">점심: 자유 식사 및 휴식</span></li>
               <li class="flex gap-2"><span class="text-blue-500 font-bold">→</span><span data-i18n="d2-i3">오후: 자유 업무 및 로컬 휴식 (서퍼스비치, 카페 등)</span></li>
-              <li class="flex gap-2"><span class="text-blue-500 font-bold">→</span><span data-i18n="d2-i4">저녁: 바베큐 네트워킹 파티 (포함)</span></li>
-              <li class="flex gap-2"><span class="text-blue-500 font-bold">→</span><span data-i18n="d2-i5">밤: 자유 교류 시간 — 브랜드·서비스·프로젝트 자유 소개</span></li>
+              <li class="flex gap-2"><span class="text-blue-500 font-bold">→</span><span data-i18n="d2-i4">저녁: 자유 네트워킹 시간</span></li>
             </ul>
           </div>
         </div>
@@ -453,9 +451,8 @@
       <div class="flex flex-col gap-3">
         <a href="#form" class="bg-white text-[#0f766e] font-bold py-4 rounded-full hover:bg-teal-50 transition-all text-base" data-i18n="cta-btn1">신청 폼 작성하기 →</a>
         <a href="http://pf.kakao.com/_xiPxbXG/chat" target="_blank" class="bg-yellow-400 text-gray-900 font-bold py-4 rounded-full hover:bg-yellow-300 transition-all text-base" data-i18n="cta-btn2">💬 카카오 오픈채팅 문의</a>
-        <a href="mailto:hello@wakation.kr" class="bg-transparent text-white font-semibold py-3.5 rounded-full border-2 border-white/50 hover:bg-white/10 transition-all text-sm" data-i18n="cta-btn3">이메일 문의 — hello@wakation.kr</a>
       </div>
-      <p class="text-teal-200/90 text-xs mt-6" data-i18n="cta-footer-note">신청 후 담당자 확인 연락 드립니다 · 단체(3인+) 별도 문의 가능</p>
+      <p class="text-teal-200/90 text-xs mt-6" data-i18n="cta-footer-note">신청하시는 분들께 별도로 일정 안내 드립니다.</p>
     </div>
   </section>
 
@@ -570,13 +567,6 @@
               </div>
               <p class="text-slate-400 text-xs mt-1.5" data-i18n="f-room-hint">1인실은 객실 상황에 따라 신청 가능 여부가 달라질 수 있습니다.</p>
             </div>
-            <div>
-              <label class="block text-sm font-semibold text-slate-700 mb-1.5">
-                <span data-i18n="f-diet">식단 특이사항</span>
-                <span class="text-slate-400 font-normal ml-1" data-i18n="f-opt">(선택)</span>
-              </label>
-              <textarea name="diet" rows="2" class="field resize-none" data-i18n-ph="ph-diet" placeholder="알레르기, 채식, 기타 식단 제한이 있으면 적어주세요. 없으면 비워두세요."></textarea>
-            </div>
           </div>
         </fieldset>
         <fieldset>
@@ -667,21 +657,21 @@
             <p class="text-[#0f172a] font-bold" data-i18n="fq4">Q. 식사는 어떻게 되나요?</p>
             <svg class="faq-chevron w-4 h-4 text-slate-400 shrink-0 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
           </div>
-          <div class="faq-answer px-6 pb-6"><p class="text-slate-600 text-sm leading-relaxed" data-i18n="fa4">둘째 날 저녁 바베큐는 참가비에 포함됩니다. 조·중식은 자율이며, 숙소 및 웨이브웍스 인근에 카페와 식당이 가까이 있습니다.</p></div>
+          <div class="faq-answer px-6 pb-6"><p class="text-slate-600 text-sm leading-relaxed" data-i18n="fa4">첫째 날 저녁 바베큐는 참가비에 포함됩니다. 조·중식은 자율이며, 숙소 및 웨이브웍스 인근에 카페와 식당이 가까이 있습니다.</p></div>
         </div>
         <div class="faq-item bg-white rounded-2xl shadow-sm border border-slate-100 hover:border-teal-300 hover:shadow-md transition-all cursor-pointer overflow-hidden" onclick="toggleFaq(this)">
           <div class="faq-header p-6 flex justify-between items-center gap-4">
             <p class="text-[#0f172a] font-bold" data-i18n="fq5">Q. 자차 주차 및 대중교통 접근은?</p>
             <svg class="faq-chevron w-4 h-4 text-slate-400 shrink-0 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
           </div>
-          <div class="faq-answer px-6 pb-6"><p class="text-slate-600 text-sm leading-relaxed" data-i18n="fa5">숙소 및 웨이브웍스 양양 내 주차 공간을 이용하실 수 있습니다. 서울에서 양양행 고속버스(동서울 → 양양) 이용 후 택시 또는 도보로 이동 가능합니다.</p></div>
+          <div class="faq-answer px-6 pb-6"><p class="text-slate-600 text-sm leading-relaxed" data-i18n="fa5">숙소 및 웨이브웍스 양양 내 주차 공간을 이용하실 수 있습니다. 서울에서 양양행 고속버스(동서울 → 양양) 이용 후 택시 또는 2회 (12시/15시) 픽업 예정 (신청 시 안내) 으로 이동 가능합니다.</p></div>
         </div>
         <div class="faq-item bg-white rounded-2xl shadow-sm border border-slate-100 hover:border-teal-300 hover:shadow-md transition-all cursor-pointer overflow-hidden" onclick="toggleFaq(this)">
           <div class="faq-header p-6 flex justify-between items-center gap-4">
             <p class="text-[#0f172a] font-bold" data-i18n="fq6">Q. 세금계산서나 현금영수증 발행이 가능한가요?</p>
             <svg class="faq-chevron w-4 h-4 text-slate-400 shrink-0 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
           </div>
-          <div class="faq-answer px-6 pb-6"><p class="text-slate-600 text-sm leading-relaxed" data-i18n="fa6">가능합니다. 신청 폼 행정 항목에서 사업자등록번호를 남겨주시면 담당자가 안내 드립니다.</p></div>
+          <div class="faq-answer px-6 pb-6"><p class="text-slate-600 text-sm leading-relaxed" data-i18n="fa6">가능합니다. 신청 폼 행정 항목에서 네를 선택해주시면 담당자가 안내 드립니다.</p></div>
         </div>
         <div class="faq-item bg-white rounded-2xl shadow-sm border border-slate-100 hover:border-teal-300 hover:shadow-md transition-all cursor-pointer overflow-hidden" onclick="toggleFaq(this)">
           <div class="faq-header p-6 flex justify-between items-center gap-4">
@@ -720,7 +710,7 @@
         "gc2-title":"바다 앞 휴식","gc2-desc":"탁 트인 양양 해변 · 서퍼스비치 — 일상에서 벗어나 몸과 마음을 회복하는 시간",
         "gc3-title":"자유로운 네트워킹","gc3-desc":"바베큐 파티 · 자유 교류 — 브랜드·서비스·프로젝트를 편하게 나누는 시간",
         "about-title":"단순 여행 패키지가 아닙니다.<br/><span class=\"text-slate-500 font-bold\">일과 휴식, 네트워킹이 함께 있는 워케이션 경험입니다.</span>",
-        "about-sub":"강원도 양양에서 2박 3일 동안 업무 환경, 바다 앞 휴식, 자유로운 네트워킹을 한 흐름으로 경험합니다. 혼자 와도, 팀으로 와도 자연스럽게 연결될 수 있도록 구성했습니다.",
+        "about-sub":"강원도 양양에서 2박 3일 동안 업무 환경, 바다 앞 휴식, 자유로운 네트워킹을 한 흐름으로 경험합니다. 혼자와도 팀으로 와도 자연스럽게 연결 됩니다.",
         "about-sub2":"양양은 바다가 주는 개방감과 회복감이 큰 지역입니다. 탁 트인 바다를 바라보며 일하고 쉬는 경험은 일상적인 업무 공간에서는 얻기 어려운 전환감을 줍니다. 수도권에서 접근 가능한 거리이면서도 충분히 일상과 분리된 느낌을 주는 곳입니다.",
         "about-c1-title":"자유 업무 공간","about-c1-desc":"회사 업무, 개인 프로젝트, 콘텐츠 제작 — 각자의 일을 이어가는 코워킹 환경",
         "about-c2-title":"바다 앞 휴식","about-c2-desc":"탁 트인 환경에서 몸과 마음을 회복하는 진짜 휴식",
@@ -735,13 +725,13 @@
         "inc-in-title":"✅ 포함 사항",
         "inc-in-list":"<li class=\"flex gap-2\"><span class=\"text-[#0d9488] font-bold shrink-0\">·</span>숙박 2박 (2인 1실 기준)</li><li class=\"flex gap-2\"><span class=\"text-[#0d9488] font-bold shrink-0\">·</span>프로그램 운영 및 진행</li><li class=\"flex gap-2\"><span class=\"text-[#0d9488] font-bold shrink-0\">·</span>집중 업무 공간 (웨이브웍스 양양)</li><li class=\"flex gap-2\"><span class=\"text-[#0d9488] font-bold shrink-0\">·</span>네트워킹 프로그램</li><li class=\"flex gap-2\"><span class=\"text-[#0d9488] font-bold shrink-0\">·</span>워케이션 경험 공유 시간</li><li class=\"flex gap-2\"><span class=\"text-[#0d9488] font-bold shrink-0\">·</span>1일 저녁 식사 (바베큐)</li><li class=\"flex gap-2\"><span class=\"text-[#0d9488] font-bold shrink-0\">·</span>다과</li><li class=\"flex gap-2\"><span class=\"text-[#0d9488] font-bold shrink-0\">·</span>Wakation 초기 참가자 혜택</li>",
         "inc-out-title":"❌ 불포함 사항",
-        "inc-out-list":"<li class=\"flex gap-2\"><span class=\"font-bold shrink-0\">·</span>왕복 교통비</li><li class=\"flex gap-2\"><span class=\"font-bold shrink-0\">·</span>개인 식비 (바베큐 외 조·중식)</li><li class=\"flex gap-2\"><span class=\"font-bold shrink-0\">·</span>개인 카페 이용 비용</li><li class=\"flex gap-2\"><span class=\"font-bold shrink-0\">·</span>개별 관광 및 액티비티 비용</li><li class=\"flex gap-2\"><span class=\"font-bold shrink-0\">·</span>기타 개인 경비</li>",
+        "inc-out-list":"<li class=\"flex gap-2\"><span class=\"font-bold shrink-0\">·</span>왕복 교통비</li><li class=\"flex gap-2\"><span class=\"font-bold shrink-0\">·</span>개인 식비 (1일차 바베큐외 식사)</li><li class=\"flex gap-2\"><span class=\"font-bold shrink-0\">·</span>개인 카페 이용 비용</li><li class=\"flex gap-2\"><span class=\"font-bold shrink-0\">·</span>개별 관광 및 액티비티 비용</li><li class=\"flex gap-2\"><span class=\"font-bold shrink-0\">·</span>기타 개인 경비</li>",
         "inc-room-opt-title":"1인실 추가 옵션","inc-room-opt-desc":"1일 +30,000원 · 2박 기준 총 +60,000원<br/>객실 상황에 따라 신청 가능 여부가 달라질 수 있습니다.",
         "sch-title":"2박 3일 일정","sch-sub":"2026년 6월 17일(수) – 19일(금)",
-        "d1-title":"도착, 체크인, 첫 만남","d1-date":"6월 17일 수요일",
-        "d1-i1":"오후: 양양 도착 및 체크인","d1-i2":"오후: 오리엔테이션 및 자기소개","d1-i3":"오후: 자유 업무 및 휴식","d1-i4":"저녁: 자유 네트워킹 시간",
-        "d2-title":"집중 업무, 바다, 네트워킹 파티","d2-date":"6월 18일 목요일",
-        "d2-i1":"오전: 집중 업무 시간","d2-i2":"점심: 자유 식사 및 휴식","d2-i3":"오후: 자유 업무 및 로컬 휴식 (서퍼스비치, 카페 등)","d2-i4":"저녁: 바베큐 네트워킹 파티 (포함)","d2-i5":"밤: 자유 교류 시간 — 브랜드·서비스·프로젝트 자유 소개",
+        "d1-title":"도착, 체크인, 바베큐 파티","d1-date":"6월 17일 수요일",
+        "d1-i1":"오후: 양양 도착 및 체크인","d1-i2":"오후: 오리엔테이션 및 자기소개","d1-i3":"오후: 자유 업무 및 휴식","d1-i4":"저녁: 바베큐 네트워킹 파티 (포함)","d1-i5":"밤: 자유 교류 시간 — 브랜드·서비스·프로젝트 자유 소개",
+        "d2-title":"집중 업무, 바다, 자유 네트워킹","d2-date":"6월 18일 목요일",
+        "d2-i1":"오전: 집중 업무 시간","d2-i2":"점심: 자유 식사 및 휴식","d2-i3":"오후: 자유 업무 및 로컬 휴식 (서퍼스비치, 카페 등)","d2-i4":"저녁: 자유 네트워킹 시간",
         "d3-title":"정리, 경험 공유, 해산","d3-date":"6월 19일 금요일",
         "d3-i1":"오전: 가벼운 업무 또는 자유 시간","d3-i2":"오전: 워케이션 경험 공유 (자유 참여)","d3-i3":"정오 전후: 체크아웃 및 해산",
         "who-title":"이런 분께 딱 맞습니다",
@@ -753,8 +743,8 @@
         "cta-origin-price":"정가 ₩399,000","cta-price-label":"1기 파일럿 특별가",
         "cta-price-note":"VAT 포함 · 숙박·프로그램·바베큐 포함","cta-tax-note":"세금계산서 · 현금영수증 발행 가능",
         "cta-room-opt":"1인실 추가 옵션","cta-room-desc":"1일 +30,000원 · 2박 기준 총 +60,000원 · 객실 상황에 따라 신청 가능 여부가 달라질 수 있습니다.",
-        "cta-btn1":"신청 폼 작성하기 →","cta-btn2":"💬 카카오 오픈채팅 문의","cta-btn3":"이메일 문의 — hello@wakation.kr",
-        "cta-footer-note":"신청 후 담당자 확인 연락 드립니다 · 단체(3인+) 별도 문의 가능",
+        "cta-btn1":"신청 폼 작성하기 →","cta-btn2":"💬 카카오 오픈채팅 문의",
+        "cta-footer-note":"신청하시는 분들께 별도로 일정 안내 드립니다.",
         "form-title":"신청 폼","form-sub":"제출 후 담당자가 48시간 내 확인 연락 드립니다. 결제는 확정 안내 후 진행됩니다.",
         "form-s1":"기본 정보","form-s2":"참가 정보","form-s3":"행정 &amp; 운영 준비","form-s4":"마지막 질문",
         "f-name":"이름","f-phone":"연락처","f-email":"이메일","ph-name":"홍길동","ph-phone":"010-0000-0000",
@@ -765,7 +755,6 @@
         "f-biznum":"사업자등록번호","f-biznum-hint":"담당자 확인 후 발행 절차를 별도 안내 드립니다.",
         "f-room":"숙박 옵션","f-room-shared":"2인 1실 (기본)","f-room-single":"1인실 (+60,000원 / 2박)",
         "f-room-hint":"1인실은 객실 상황에 따라 신청 가능 여부가 달라질 수 있습니다.",
-        "f-diet":"식단 특이사항","f-opt":"(선택)","ph-diet":"알레르기, 채식, 기타 식단 제한이 있으면 적어주세요. 없으면 비워두세요.",
         "f-challenge":"이번 워케이션에서 기대하는 경험이나 연결되고 싶은 사람/분야가 있다면 적어주세요.",
         "ph-challenge":"예: 마케터나 콘텐츠 운영자와 연결되고 싶다 / 내 서비스를 자연스럽게 소개하고 싶다 / 바다 앞에서 밀린 업무를 정리하고 싶다",
         "f-challenge-hint":"네트워킹 구성과 운영 참고용으로 활용됩니다.",
@@ -780,9 +769,9 @@
         "fq2":"Q. 업무 환경은 어떤가요?","fa2":"웨이브웍스 양양에서 전용 데스크, 고속 WiFi, 회의실을 종일 이용할 수 있습니다. 각자의 노트북과 업무를 자유롭게 가져와 사용하실 수 있습니다.",
         "fq3":"Q. 일정은 언제인가요?","fa3":"1기 파일럿은 <strong>2026년 6월 17일(수) – 19일(금)</strong>, 2박 3일로 운영됩니다. 수요일 오후 체크인 → 금요일 정오 체크아웃 기준입니다.",
         "fq-single":"Q. 1인실 신청이 가능한가요?","fa-single":"객실 상황에 따라 가능합니다. 1인실 신청 시 1일 30,000원이 추가되며, 2박 기준 총 60,000원이 추가됩니다. 신청 폼에서 선택하시면 확인 후 안내 드립니다.",
-        "fq4":"Q. 식사는 어떻게 되나요?","fa4":"둘째 날 저녁 바베큐는 참가비에 포함됩니다. 조·중식은 자율이며, 숙소 및 웨이브웍스 인근에 카페와 식당이 가까이 있습니다.",
-        "fq5":"Q. 자차 주차 및 대중교통 접근은?","fa5":"숙소 및 웨이브웍스 양양 내 주차 공간을 이용하실 수 있습니다. 서울에서 양양행 고속버스(동서울 → 양양) 이용 후 택시 또는 도보로 이동 가능합니다.",
-        "fq6":"Q. 세금계산서나 현금영수증 발행이 가능한가요?","fa6":"가능합니다. 신청 폼 행정 항목에서 사업자등록번호를 남겨주시면 담당자가 안내 드립니다.",
+        "fq4":"Q. 식사는 어떻게 되나요?","fa4":"첫째 날 저녁 바베큐는 참가비에 포함됩니다. 조·중식은 자율이며, 숙소 및 웨이브웍스 인근에 카페와 식당이 가까이 있습니다.",
+        "fq5":"Q. 자차 주차 및 대중교통 접근은?","fa5":"숙소 및 웨이브웍스 양양 내 주차 공간을 이용하실 수 있습니다. 서울에서 양양행 고속버스(동서울 → 양양) 이용 후 택시 또는 2회 (12시/15시) 픽업 예정 (신청 시 안내) 으로 이동 가능합니다.",
+        "fq6":"Q. 세금계산서나 현금영수증 발행이 가능한가요?","fa6":"가능합니다. 신청 폼 행정 항목에서 네를 선택해주시면 담당자가 안내 드립니다.",
         "fq7":"Q. 취소 및 환불 정책은?","fa7":"출발 7일 전까지 전액 환불, 3일 전까지 50% 환불, 이후 환불 불가입니다."
       },
       ja: {
@@ -800,7 +789,7 @@
         "gc2-title":"海辺の休息","gc2-desc":"開放的な楊洋ビーチ・サーファーズビーチ — 日常を離れて心身を回復する時間",
         "gc3-title":"自由なネットワーキング","gc3-desc":"BBQパーティー・自由交流 — ブランド・サービス・プロジェクトを気軽にシェアする時間",
         "about-title":"単なる旅行パッケージではありません。<br/><span class=\"text-slate-500 font-bold\">仕事・休息・ネットワーキングが一体となったワーケーション体験です。</span>",
-        "about-sub":"江原道楊洋で2泊3日間、業務環境・海辺の休息・自由なネットワーキングをひとつの流れで体験します。一人でも、チームでも自然につながれるよう構成しました。",
+        "about-sub":"江原道楊洋で2泊3日間、業務環境・海辺の休息・自由なネットワーキングをひとつの流れで体験します。一人でもチームでも自然につながれます。",
         "about-sub2":"楊洋は海が与える開放感と回復感が大きい地域です。広々とした海を眺めながら働き休む体験は、日常的な業務空間では得難い転換感を与えてくれます。首都圏からアクセス可能な距離でありながら、十分に日常と切り離された感覚を持てる場所です。",
         "about-c1-title":"自由業務スペース","about-c1-desc":"会社業務、個人プロジェクト、コンテンツ制作 — それぞれの仕事を続けられるコワーキング環境",
         "about-c2-title":"海辺の休息","about-c2-desc":"開放的な環境で心身を回復する本当の休息",
@@ -815,13 +804,13 @@
         "inc-in-title":"✅ 含まれるもの",
         "inc-in-list":"<li class=\"flex gap-2\"><span class=\"text-[#0d9488] font-bold shrink-0\">·</span>2泊宿泊（2人1室基準）</li><li class=\"flex gap-2\"><span class=\"text-[#0d9488] font-bold shrink-0\">·</span>プログラム運営・進行</li><li class=\"flex gap-2\"><span class=\"text-[#0d9488] font-bold shrink-0\">·</span>集中業務スペース（Waveworks楊洋）</li><li class=\"flex gap-2\"><span class=\"text-[#0d9488] font-bold shrink-0\">·</span>ネットワーキングプログラム</li><li class=\"flex gap-2\"><span class=\"text-[#0d9488] font-bold shrink-0\">·</span>ワーケーション体験シェア時間</li><li class=\"flex gap-2\"><span class=\"text-[#0d9488] font-bold shrink-0\">·</span>1日夕食（BBQ）</li><li class=\"flex gap-2\"><span class=\"text-[#0d9488] font-bold shrink-0\">·</span>軽食・ドリンク</li><li class=\"flex gap-2\"><span class=\"text-[#0d9488] font-bold shrink-0\">·</span>Wakation初期参加者特典</li>",
         "inc-out-title":"❌ 含まれないもの",
-        "inc-out-list":"<li class=\"flex gap-2\"><span class=\"font-bold shrink-0\">·</span>往復交通費</li><li class=\"flex gap-2\"><span class=\"font-bold shrink-0\">·</span>個人食費（BBQ以外の朝・昼食）</li><li class=\"flex gap-2\"><span class=\"font-bold shrink-0\">·</span>個人カフェ利用費</li><li class=\"flex gap-2\"><span class=\"font-bold shrink-0\">·</span>個別観光・アクティビティ費用</li><li class=\"flex gap-2\"><span class=\"font-bold shrink-0\">·</span>その他個人経費</li>",
+        "inc-out-list":"<li class=\"flex gap-2\"><span class=\"font-bold shrink-0\">·</span>往復交通費</li><li class=\"flex gap-2\"><span class=\"font-bold shrink-0\">·</span>個人食費（1日目BBQ以外の食事）</li><li class=\"flex gap-2\"><span class=\"font-bold shrink-0\">·</span>個人カフェ利用費</li><li class=\"flex gap-2\"><span class=\"font-bold shrink-0\">·</span>個別観光・アクティビティ費用</li><li class=\"flex gap-2\"><span class=\"font-bold shrink-0\">·</span>その他個人経費</li>",
         "inc-room-opt-title":"1人室追加オプション","inc-room-opt-desc":"1日 +30,000ウォン · 2泊計 +60,000ウォン<br/>客室状況により申し込み可否が変わる場合があります。",
         "sch-title":"2泊3日スケジュール","sch-sub":"2026年6月17日(水) – 19日(金)",
-        "d1-title":"到着、チェックイン、初対面","d1-date":"6月17日 水曜日",
-        "d1-i1":"午後：楊洋到着・チェックイン","d1-i2":"午後：オリエンテーション・自己紹介","d1-i3":"午後：自由業務・休息","d1-i4":"夜：自由ネットワーキング時間",
-        "d2-title":"集中業務、海、ネットワーキングパーティー","d2-date":"6月18日 木曜日",
-        "d2-i1":"午前：集中業務時間","d2-i2":"昼：自由食事・休息","d2-i3":"午後：自由業務・ローカル休息（サーファーズビーチ、カフェ等）","d2-i4":"夜：BBQネットワーキングパーティー（含む）","d2-i5":"夜：自由交流 — ブランド・サービス・プロジェクト自由紹介",
+        "d1-title":"到着、チェックイン、BBQパーティー","d1-date":"6月17日 水曜日",
+        "d1-i1":"午後：楊洋到着・チェックイン","d1-i2":"午後：オリエンテーション・自己紹介","d1-i3":"午後：自由業務・休息","d1-i4":"夜：BBQネットワーキングパーティー（含む）","d1-i5":"夜：自由交流 — ブランド・サービス・プロジェクト自由紹介",
+        "d2-title":"集中業務、海、自由ネットワーキング","d2-date":"6月18日 木曜日",
+        "d2-i1":"午前：集中業務時間","d2-i2":"昼：自由食事・休息","d2-i3":"午後：自由業務・ローカル休息（サーファーズビーチ、カフェ等）","d2-i4":"夜：自由ネットワーキング時間",
         "d3-title":"まとめ、体験シェア、解散","d3-date":"6月19日 金曜日",
         "d3-i1":"午前：軽い業務または自由時間","d3-i2":"午前：ワーケーション体験シェア（自由参加）","d3-i3":"正午前後：チェックアウト・解散",
         "who-title":"こんな方にぴったりです",
@@ -833,8 +822,8 @@
         "cta-origin-price":"定価 ₩399,000","cta-price-label":"1期パイロット特別価格",
         "cta-price-note":"VAT含む · 宿泊・プログラム・BBQ含む","cta-tax-note":"領収書・現金領収書発行可能",
         "cta-room-opt":"1人室追加オプション","cta-room-desc":"1日 +30,000ウォン · 2泊計 +60,000ウォン · 客室状況により申し込み可否が変わる場合があります。",
-        "cta-btn1":"申し込みフォームへ →","cta-btn2":"💬 カカオオープンチャット相談","cta-btn3":"メール相談 — hello@wakation.kr",
-        "cta-footer-note":"申込後、担当者より確認のご連絡をいたします · グループ(3名以上)はお問い合わせください",
+        "cta-btn1":"申し込みフォームへ →","cta-btn2":"💬 カカオオープンチャット相談",
+        "cta-footer-note":"お申し込みの方には別途スケジュールをご案内いたします。",
         "form-title":"申し込みフォーム","form-sub":"提出後、担当者が48時間以内にご確認のご連絡をいたします。決済は確定後にご案内します。",
         "form-s1":"基本情報","form-s2":"参加情報","form-s3":"行政・運営準備","form-s4":"最後の質問",
         "f-name":"お名前","f-phone":"電話番号","f-email":"メールアドレス","ph-name":"山田太郎","ph-phone":"+81-00-0000-0000",
@@ -845,7 +834,6 @@
         "f-biznum":"法人番号／事業者番号","f-biznum-hint":"担当者確認後、発行手続きについて別途ご案内します。",
         "f-room":"宿泊オプション","f-room-shared":"2人1室（基本）","f-room-single":"1人室（+60,000ウォン / 2泊）",
         "f-room-hint":"1人室は客室状況により申し込み可否が変わる場合があります。",
-        "f-diet":"食事の特記事項","f-opt":"(任意)","ph-diet":"アレルギー、ベジタリアン、その他の食事制限があればご記入ください。",
         "f-challenge":"今回のワーケーションで期待する体験や、つながりたい人・分野があればご記入ください。",
         "ph-challenge":"例: マーケターやコンテンツ運営者とつながりたい / 自分のサービスを自然に紹介したい / 海辺で溜まった業務を整理したい",
         "f-challenge-hint":"ネットワーキング構成と運営の参考に活用します。",
@@ -860,9 +848,9 @@
         "fq2":"Q. 業務環境はどうですか？","fa2":"Waveworks楊洋で専用デスク、高速WiFi、会議室を終日ご利用いただけます。各自のノートPCと業務を自由にお持ちいただけます。",
         "fq3":"Q. 日程はいつですか？","fa3":"1期パイロットは<strong>2026年6月17日(水)〜19日(金)</strong>、2泊3日での開催です。水曜日午後チェックイン → 金曜日正午チェックアウトが基準です。",
         "fq-single":"Q. 1人室の申し込みは可能ですか？","fa-single":"客室状況により可能です。1人室申し込み時は1日30,000ウォンが追加され、2泊計60,000ウォンが追加されます。申し込みフォームで選択いただければ確認後にご案内します。",
-        "fq4":"Q. 食事はどうなりますか？","fa4":"2日目夜のBBQは参加費に含まれます。朝・昼食は自由で、宿泊施設及びWaveworks周辺にカフェや食堂が近くにあります。",
-        "fq5":"Q. 自家用車の駐車場と公共交通のアクセスは？","fa5":"宿泊施設及びWaveworks楊洋内の駐車スペースをご利用いただけます。ソウルから楊洋行き高速バス（東ソウル→楊洋）をご利用後、タクシーまたは徒歩でお越しいただけます。",
-        "fq6":"Q. 領収書や現金領収書の発行は可能ですか？","fa6":"可能です。申し込みフォームの行政項目で事業者番号をご記入いただければ、担当者が確認後にご案内します。",
+        "fq4":"Q. 食事はどうなりますか？","fa4":"1日目夜のBBQは参加費に含まれます。朝・昼食は自由で、宿泊施設及びWaveworks周辺にカフェや食堂が近くにあります。",
+        "fq5":"Q. 自家用車の駐車場と公共交通のアクセスは？","fa5":"宿泊施設及びWaveworks楊洋内の駐車スペースをご利用いただけます。ソウルから楊洋行き高速バス（東ソウル→楊洋）をご利用後、タクシーまたは2回（12時/15時）のピックアップ予定（申し込み時にご案内）でお越しいただけます。",
+        "fq6":"Q. 領収書や現金領収書の発行は可能ですか？","fa6":"可能です。申し込みフォームの行政項目で「はい」を選択していただければ、担当者が確認後にご案内します。",
         "fq7":"Q. キャンセル・返金ポリシーは？","fa7":"出発7日前まで全額返金、3日前まで50%返金、以降返金不可となります。"
       }
     };
